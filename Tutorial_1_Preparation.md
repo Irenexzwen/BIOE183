@@ -43,12 +43,16 @@ Now you're officially logged into a linux system on your own computer! Next, we'
 ## My system is MacOS:
 
 
-## Linux basics:
+# Linux basics:
 The file system structure of linux is hierarchical, everything is a file (document, .exe, script, .mp3 etc) at a specific layer of the system. Unlike windows, which store files on different drives (C: D: G: etc). The "/" is the root of the whole system, and any other files are stored in different levels of the tree. Important folders have been listed below, about their naming tradition one can refer to [here](http://www.linuxstories.net/linux-directory-structure-file-system-structure/).
 <img src="https://github.com/WGLab/dragonstar2019/blob/master/day1_linux/img/directory.png"> 
 
 ### 1) directory navigation
 Home directory:
+Everytime you open "Ubuntu" you will see the shell prompt like:
+
+`user_name @ servername: current_directory $ COMMAND_TYPE_HERE`.
+
 Every new user will have their own home directory: `/home/user_name`, your home directory are often short for `~`,which you could check it here:
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/linux.png">
 
@@ -101,11 +105,17 @@ To learn more about linux basic operations, you could check these resources:
 - Linux tutorial from MIT: [here](http://math.mit.edu/services/help/new/unix.php).
 - Unix/Linux tutorial from Berkeley: [here](https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html).
 
+## Corresponding between windows file path and Ubuntu file path system.
+```Shell
+\mnt\c   <-----> C:\
+\mnt\d   <-----> D:\
+```
 
-# Software installation with miniconda
+
+## Software installation with miniconda
 Next we're going to download and install some softwares for bioinformatics analysis, especially for this project - RNAseq analysis.
 
-### 
+### Download miniconda 
 http://www.bio-info-trainee.com/4030.html
 https://www.jianshu.com/p/6e493a1e4240?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 conda install -c bioconda samtools=1.5 
