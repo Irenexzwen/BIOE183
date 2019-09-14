@@ -105,7 +105,8 @@ To learn more about linux basic operations, you could check these resources:
 - Linux tutorial from MIT: [here](http://math.mit.edu/services/help/new/unix.php).
 - Unix/Linux tutorial from Berkeley: [here](https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html).
 
-## Corresponding between windows file path and Ubuntu file path system.
+*Corresponding between windows file path and Ubuntu file path system.*
+
 ```Shell
 \mnt\c   <-----> C:\
 \mnt\d   <-----> D:\
@@ -114,10 +115,70 @@ To learn more about linux basic operations, you could check these resources:
 
 ## Software installation with miniconda
 Next we're going to download and install some softwares for bioinformatics analysis, especially for this project - RNAseq analysis.
+Most people use [Anaconda](https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)) as a package management tool for python. However, it's power is much beyond that, here we're gonna use miniconda (lightweight version of conda without preinstalled some popular packages).
 
-### Download miniconda 
-http://www.bio-info-trainee.com/4030.html
-https://www.jianshu.com/p/6e493a1e4240?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+### Download installation script on your favorite place on your computer:
+For example, I'm gonna download and install it on D:\Miniconda on my own computer:
+```Shell
+$ cd /mnt/d
+$ mkdir Miniconda
+$ cd Miniconda
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  
+$ bash Miniconda3-latest-Linux-x86_64.sh  
+
+```
+`wget` download the script into the folder, `bash x.sh` is excute x.sh file. During the installation you are required to follow the instructions prompted from Miniconda.  
+
+If you install conda with default setting, the excutable conda usually locates in somewhere else, for example:
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/conda.png">
+
+Now we need to add that path into our environment default path so that you could use `conda` anywhere.
+```Shell
+export PATH="$PATH:/home/ucsd_bioe/miniconda3/bin/"
+conda   # running conda, now you should see the conda is successfully installed.
+```
+
+### Use bioconda to install softwares we want:
+[Bioconda](https://daler.github.io/bioconda-docs/) is a channel for the conda package manager specializing in bioinformatics softwares. A full list could be found [here](https://anaconda.org/bioconda/repo). It also provides convient way for version checking on different softwares as well as virtual environment for each individual project or different analysis pipelines. 
+
+Now, we're going to install softwares that will be useful for RNAseq analysis. 
+
+#### 1)Step1, set up a virtual environment specially for this RNAseq analysis project:
+```Shell
+conda create -n rnaseq python=3         # create an environment called "rnaseq", and install python3 .
+conda init bash 
+```
+Close your current bash and restart ubuntu. Now you could see `(base)` has been had at the beginning of the orginal line. Then you switch to RNAseq environment and install packages only in this environment.
+
+```Shell
+conda activate rnaseq                   # activate a new environment called rnaseq
+conda deactivate rnaseq                 # deactivate 
+```
+
+Add bioconda source:
+```Shell
+conda config --add channels conda-forge
+conda config --add channels defaults
+conda config --add channels r
+conda config --add channels bioconda
+```
+
+More options for conda:
+```Shell
+conda env list         # check all virtual environment on your machine
+conda list             # list out all the packages installed in this conda environment
+conda update conda     # update conda
+conda update A         # update package A
+conda search A         # check whether package A is in the source channel.
+```
+
+Install packages:
+```Shell
+
+
+
+
+```Shell
 conda install -c bioconda samtools=1.5 
 conda install -c bioconda htseq=0.7.2
 conda install -c bioconda hisat2=2.0.5
