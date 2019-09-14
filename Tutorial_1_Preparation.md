@@ -15,7 +15,7 @@ you're able to sort / extract / subsititute / get the head / get the tail / sear
 Beyond that, Linux OS is also 
 - convinent and compatible with mutiple versions of the same software.
 - easy to build up pipelines for batch files processing. 
-- super cool text processing softwares beyond your imagine. 
+- super cool text processing softwares and text editor. 
 - Great habitat for a lot of open source softwares ( especially the ones for bioinformatics ). 
 
 # Prepare a linux working environment
@@ -23,8 +23,13 @@ Beyond that, Linux OS is also
 For windows users, your options would be: 
 1) Download one linux system distribution from windows store ( Ubuntu recommended ).
 2) Log in a known server ( if your lab or other sources could provide you an account to an linux system ). 
-3) Download Cygwin.
-4) Download a virtual machine and install an linux system. 
+3) Download a virtual machine and install an linux system. 
+
+The first option would be recommended as the windows has it's own Windows Subsystem Language embedded. 
+For the first 5min of the [video](https://www.youtube.com/watch?v=xzgwDbe7foQ), you will learn how to set up a linux distribution "Ubuntu" of your windows 10 system. Once you finished that, we're going to learn more linux skills in the next part. 
+
+## My system is MacOS:
+
 
 ## Linux basics:
 3.2.1.1 Lab 1a
@@ -61,7 +66,7 @@ zcat wget.txt.qz | less
 # Software installation
 http://www.bio-info-trainee.com/4030.html
 https://www.jianshu.com/p/6e493a1e4240?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
-conda install -c bioconda samtools=1.5
+conda install -c bioconda samtools=1.5 
 conda install -c bioconda htseq=0.7.2
 conda install -c bioconda hisat2=2.0.5
 conda install -c bioconda fastqc=0.11.5
