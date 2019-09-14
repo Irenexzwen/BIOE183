@@ -44,45 +44,68 @@ Now you're officially logged into a linux system on your own computer! Next, we'
 
 
 ## Linux basics:
-The file system structure of linux is hierarchical, everything is a file (document, .exe, script, .mp3 etc) at a specific layer of the system. Unlike windows, which store files on different drives (C: D: G: etc). The "/" is the root of the whole system, and any other files are stored in different levels of the tree. 
-<img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjrlcjDnNHkAhXCHjQIHY22B_0Qjhx6BAgBEAI&url=https%3A%2F%2Fwww.ques10.com%2Fp%2F17415%2Fexplain-file-system-hierarchyfhs-of-linux-1%2F&psig=AOvVaw1qhs83vWwVP7OA8-KPkSKv&ust=1568580928757395"> 
-*Credit to: https://nepalisupport.wordpress.com/2016/06/29/linux-file-system-hierarchy/.*
- 
+The file system structure of linux is hierarchical, everything is a file (document, .exe, script, .mp3 etc) at a specific layer of the system. Unlike windows, which store files on different drives (C: D: G: etc). The "/" is the root of the whole system, and any other files are stored in different levels of the tree. Important folders have been listed below, about their naming tradition one can refer to [here](http://www.linuxstories.net/linux-directory-structure-file-system-structure/).
+<img src="https://github.com/WGLab/dragonstar2019/blob/master/day1_linux/img/directory.png"> 
 
-#### 1. file system
-The file system 
-3.2.1.1 Lab 1a
-check the your present directory
-pwd
-check history
-history
-pipe history to grep to search for the cd command
-history | grep cd
-put history into a history.txt file
-history > history.txt
-make a directory called data
-mkdir data
-change into data directory
-cd data
-move history.txt file into data directory
-mv ../history.txt ./
-check manual page of wget command
-man wget
-redirect wget maunual page output into a file called wget.txt
-man wget > wget.txt
-return the lines that contain output in the wget.txt file
-cat wget.txt | grep output
-grep -i output wget.txt
-Compress wget.txt file
-gzip wget.txt
-View Compressed file
-cat wget.txt.qz
-zcat wget.txt.qz
-zcat wget.txt.qz | less
+### 1) directory navigation
+Home directory:
+Every new user will have their own home directory: `/home/user_name`, your home directory are often short for `~`,which you could check it here:
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/linux.png">
 
-# R basics
+Relative path and absolute path:
+```
+## The following characters have special meanings in linux system.
+.     # current work directory
+..    # parent directory
+-     # previous work directory
+~     # home directory
+```
 
-# Software installation
+Navigate between directories:
+```Shell
+cd \mnt\c       # change directory to \mnt\c
+cd ..           # change to parent directory
+cd .            # stay where you are 
+pwd             # Check the absolute path of current directory
+mkdir A         # Make a new directory at the current path called A.
+rmdir -r A      # remove a A at the current path. (here -r means, remove A in an recursively fashion.)
+```
+
+### 2) Check files in current folder:
+```Shell
+ls            # list files in current folder, not include hidden files
+ls -a         # list files in current folder, include hidden files
+ls -t         # list files in current folder, sorted by time
+man ls        # check all the features of tool `ls`
+```
+
+### 3) Copy, rename and delete a file or folder:
+```Shell
+cp A B     # copy file A to file B in current folder, you could also change B to a absolute path
+rm A       # remove file A 
+rm *.txt   # remove all txt files (* is a wildcard character)
+rm -rf A   # remove directory A without inquiry ( could be dangerous some time )
+mv A B     # change the name of file(folder) A to B 
+mv A C     # move A into folder C ( if C is a folder) 
+```
+
+### 4) Check text file and modification:
+```Shell
+less m.txt              # check file m.txt, scroll down a file using ↑ and ↓ (most commonly used)
+cat m.txt               # open file m.txt from the beginning to end
+tac m.txt               # open file m.txt from the end to beginning
+head -n 10 m.txt        # only open the first 10 lines of m.txt
+tail -n 10 m.txt        # only open the last 10 lines of m.txt
+```
+To learn more about linux basic operations, you could check these resources:
+- Linux tutorial from MIT: [here](http://math.mit.edu/services/help/new/unix.php).
+- Unix/Linux tutorial from Berkeley: [here](https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html).
+
+
+# Software installation with miniconda
+Next we're going to download and install some softwares for bioinformatics analysis, especially for this project - RNAseq analysis.
+
+### 
 http://www.bio-info-trainee.com/4030.html
 https://www.jianshu.com/p/6e493a1e4240?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 conda install -c bioconda samtools=1.5 
