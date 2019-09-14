@@ -174,14 +174,10 @@ conda search A         # check whether package A is in the source channel.
 
 Install packages:
 ```Shell
-
-
-
-
-```Shell
-conda install -c bioconda samtools=1.5 
-conda install -c bioconda htseq=0.7.2
-conda install -c bioconda hisat2=2.0.5
-conda install -c bioconda fastqc=0.11.5
-conda install -c jfear sratoolkit=2.8.1
-conda install star
+conda install fastp=0.20.0 
+conda install fastqc=0.11.8
+conda install minimap2=2.17
+conda install samtools=1.9
+conda install htseq=0.11.2
+conda install hisat2=2.1.0
+···
