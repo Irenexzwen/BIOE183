@@ -25,7 +25,7 @@ and generated 76bp paired-end sequence data using poly-(A)+ selected RNA.
 
 ## Recourses:
 #### 1.Tutorials:
-[1] Weill Cornell Medical Colledge: http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf
+[1] Weill Cornell Medical Colledge: http://chagall.med.cornell.edu/RNASEQcourse/
 
 #### 2.Software manuals:
 - [Bioconda](https://www.youtube.com/watch?v=lGa9PCSH5IU) starting from 3:30. 
