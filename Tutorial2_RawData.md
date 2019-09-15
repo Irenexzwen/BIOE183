@@ -161,6 +161,10 @@ fastp v0.20.0, time used: 6 seconds
 You could check the result in 2cell_fastp.html and 6h_fastp.html. This is very detailed and pretty much like what you've learned in fastqc report. 
 
 Now you also got two clean pairend fastq files! We're ready for the next step. 
-
-
+```Shell
+fastp/2cells_R1_clean.fastq  
+fastp/2cells_R2_clean.fastq  
+fastp/6h_R1_clean.fastq
+fastp/6h_R2_clean.fastq
+```
 
