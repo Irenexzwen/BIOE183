@@ -30,5 +30,5 @@ and generated 76bp paired-end sequence data using poly-(A)+ selected RNA.
 #### 2.Software manuals:
 - [Bioconda](https://www.youtube.com/watch?v=lGa9PCSH5IU) starting from 3:30. 
 - [fastQC manual](https://dnacore.missouri.edu/PDF/FastQC_Manual.pdf)
-- []
+- [fastp manual](https://github.com/OpenGene/fastp)
 
