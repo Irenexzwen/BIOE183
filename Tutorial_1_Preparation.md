@@ -172,7 +172,7 @@ conda update A         # update package A
 conda search A         # check whether package A is in the source channel.
 ```
 
-Install packages:
+Install packages: 
 ```Shell
 conda install fastp=0.20.0 
 conda install fastqc=0.11.8
