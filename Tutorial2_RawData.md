@@ -88,9 +88,79 @@ When sequencing RNA there will be some very highly abundant transcripts and some
 fastqc will look at the first 50 bp of all sequences, see if this 50-mer is overrepresented compare to an expected ratio of all reads, eg 0.1%. The table will give you useful information, even includes possible sources. 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/over.png">
 
-:star2:Your tasks: Understand what other plots of the report
+:star2:Your tasks: Understand what other plots of the report indicates. If there is a problem please refer to our [reference manual](http://chagall.med.cornell.edu/RNASEQcourse/FastQC_TutorialAndFAQ_080717.pdf). Understand why there are some difference in fastqc results with respect to DNA library and RNA library. 
 
 
-## 4). Preprocessing of the raw data f
+## 4). Preprocessing of the raw data 
+Our next step is to clean the raw data. Why we need to clean our data, and what are those unwanted contaminats in RNAseq data? 
+In essence, we want our RNAseq library to reflect a faithful representation of the real situation in a cell. Which is to say, we're trying to aviod these signals for the downstream analysis:
+- artificial DNA, adapters, primers.
+- contamination from other species, like bateria.
+- rRNA usually counted to a very large percent of all transcriptome, which might suppress the library amplication efficacy. Remove them use kit while doing experiement or remove bioinformatically after you get the raw reads.
+
+Here we will learn how to remove the adapters of the raw reads. Retaining adapters might larged influence the reads alignment step (too many bases would be identified as mismatch as the adapters are foreign sequence to the organism genome). 
+
+```Shell
+# We will use fastp to automatically detect and remove adpaters. 
+
+# check if successfully installed fastp, if not please use conda install fastp
+fastp -h  
+
+# run fastp
+mkdir fastp  # to store fastp results
+
+fastp -i 2cells_1.fastq -I 2cells_2.fastq -o fastp/2cells_R1_clean.fastq -O fastp/2cells_R2_clean.fastq -h 2cell_fastp.html
+fastp -i 6h_1.fastq -I 6h_2.fastq -o fastp/6h_R1_clean.fastq -O fastp/6h_R2_clean.fastq -h 6h_fastp.html
+```
+
+It will finish with few seconds and the results would print out to the screen:
+```Shell
+Read1 before filtering:
+total reads: 786742
+total bases: 59792392
+Q20 bases: 57669779(96.45%)
+Q30 bases: 43262473(72.3545%)
+
+Read2 before filtering:
+total reads: 786742
+total bases: 59792392
+Q20 bases: 57447802(96.0788%)
+Q30 bases: 40784290(68.2098%)
+
+Read1 after filtering:
+total reads: 770487
+total bases: 58522540
+Q20 bases: 56667730(96.8306%)
+Q30 bases: 42631358(72.846%)
+
+Read2 aftering filtering:
+total reads: 770487
+total bases: 58522540
+Q20 bases: 56891294(97.2126%)
+Q30 bases: 40538007(69.269%)
+
+Filtering result:
+reads passed filter: 1540974
+reads failed due to low quality: 31554
+reads failed due to too many N: 956
+reads failed due to too short: 0
+reads with adapter trimmed: 2790
+bases trimmed due to adapters: 69036
+
+Duplication rate: 11.508%
+
+Insert size peak (evaluated by paired-end reads): 118
+
+JSON report: fastp.json
+HTML report: fastp.html
+
+fastp -i 2cells_1.fastq -I 2cells_2.fastq -o fastp/2cells_R1_clean.fastq -O fastp/2cells_R2_clean.fastq
+fastp v0.20.0, time used: 6 seconds
+```
+
+You could check the result in 2cell_fastp.html and 6h_fastp.html. This is very detailed and pretty much like what you've learned in fastqc report. 
+
+Now you also got two clean pairend fastq files! We're ready for the next step. 
+
 
 
