@@ -41,11 +41,16 @@ STAR --runThreadN 3 --runMode genomeGenerate \
 --sjdbOverhang 74                                                
 ```
 
-`--runThreadN` Threads you use to run on your computer.
-`--genomeDir` The place you want to put your reference.
-`--genomeFastaFiles` The genome fasta file we're just downloaded and uncompressed.
-`--sjdbGTFfile` Gtf file.
-`--sjdbOverhang` Usually equals read length minus 1.
+`--runThreadN` Threads you use to run on your computer.  
+
+`--genomeDir` The place you want to put your reference.  
+
+`--genomeFastaFiles` The genome fasta file we're just downloaded and uncompressed.  
+
+`--sjdbGTFfile` Gtf file.  
+
+`--sjdbOverhang` Usually equals read length minus 1.  
+
 
 It takes X min to finish on my computer. The total Memory usage peak at 10g during this process. If this memory requirement is beyond your computer, you could download the pre-computed index from [here]()
 
@@ -66,9 +71,11 @@ kallisto index -i zebrafish_transcriptome.idx Danio_rerio.GRCz11.cdna.all.fa.gz
 kallisto quant -i /mnt/d/UCSD/RNAseq/reference/transcriptome/zebrafish_transcriptome.idx -o /mnt/d/UCSD/RNAseq/quant/2cell /mnt/d/UCSD/RNAseq/fastp/2cells_R1_clean.fastq /mnt/d/UCSD/RNAseq/fastp/2cells_R2_clean.fastq 
 
 kallisto quant -i /mnt/d/UCSD/RNAseq/reference/transcriptome/zebrafish_transcriptome.idx -o /mnt/d/UCSD/RNAseq/quant/6h /mnt/d/UCSD/RNAseq/fastp/6h_R1_clean.fastq /mnt/d/UCSD/RNAseq/fastp/6h_R2_clean.fastq
-
-# 
 ```
 
+Now you've finished the kallisto alignment step, the results of the abundance of different genes are summarized in the file 
+`abundance.tsv`. Be careful that the two samples's abundance file are of the same name. 
+
+Next we will use the gene expression table (from kallisto) of the two sample to do differential expression analysis. 
 
 
