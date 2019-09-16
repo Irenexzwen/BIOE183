@@ -180,4 +180,5 @@ conda install minimap2=2.17
 conda install samtools=1.9
 conda install htseq=0.11.2
 conda install hisat2=2.1.0
+conda install star=2.7.2b
 ···
