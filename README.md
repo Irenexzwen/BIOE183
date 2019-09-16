@@ -10,6 +10,8 @@
 ## Raw Sample files:
 We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome), the data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
 and generated 76bp paired-end sequence data using poly-(A)+ selected RNA. 
+
+Download [here](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/)
 - [2cells_1.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/2cells_1.fastq) 
 - [2cells_2.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/2cells_2.fastq)
 - [6h_post_fertilisation_R1.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/6h_1.fastq)
