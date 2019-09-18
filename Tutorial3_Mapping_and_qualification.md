@@ -52,10 +52,34 @@ STAR --runThreadN 3 --runMode genomeGenerate \
 `--sjdbOverhang` Usually equals read length minus 1.  
 
 
-It takes X min to finish on my computer. The total Memory usage peak at 10g during this process. If this memory requirement is beyond your computer, you could download the pre-computed index from [here]()
+It might take some time to finish the alignment, and the total Memory usage peak at 10g during this process. If this memory requirement is beyond your computer, you could download the pre-computed index from our resouce page. 
 
 
-## 5.Align to the trasctriptome and quantification
+After we build the index, we're gonna map our reads towards the genome.
+```Shell
+for i in F_head1 F_head2 F_midgut1 F_midgut2
+do
+printf "STAR --runThreadN 20 --genomeDir /dataOS/wenxingzhao/class/BIOE183/DS/reference/genome_STARidx --readFilesIn /dataOS/wenxingzhao/class/BIOE183/DS/${i}*/${i}_clean_R1.fq /dataOS/wenxingzhao/class/BIOE183/DS/${i}*/${i}_clean_R2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./${i}_STAR_genome" > ${i}_STAR.sh
+        bash ${i}_STAR.sh 
+done
+```
+This will give you two important results:
+1) A sorted [bam file](https://support.illumina.com/help/BS_App_RNASeq_Alignment_OLH_1000000006112/Content/Source/Informatics/BAM-Format.html) based on the coordinates.
+2) A final \*Log.final.out file that includes mapping results information: total mapping ratio / unique mapping ratio / number of mapped reads etc. 
+ 
+#### Quantify gene expression level use FeatureCount
+Once you get the bam file (which records each reads align to which specific locations of the genome), you may want to summarize reads abundance for each gene.   
+```Shell
+for i in F_head1 F_head2 F_midgut1 F_midgut2
+do
+        printf "/dataOS/wenxingzhao/software/featureCounts/subread-1.6.4-Linux-x86_64/bin/featureCounts -p -a /dataOS/wenxingzhao/class/BIOE183/DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf -T 10 -o ${i}_count.txt /dataOS/wenxingzhao/class/BIOE183/DS/quant/STAR/${i}*.bam" > ${i}.sh
+        bash ${i}.sh 
+done
+
+```
+
+
+## 5.Align to the trasctriptome and quantification using alignment-free method
 We will use kallisto to do pseudoalignment. 
 ```Shell
 
@@ -77,5 +101,7 @@ Now you've finished the kallisto alignment step, the results of the abundance of
 `abundance.tsv`. Be careful that the two samples's abundance file are of the same name. 
 
 Next we will use the gene expression table (from kallisto) of the two sample to do differential expression analysis. 
+
+
 
 
