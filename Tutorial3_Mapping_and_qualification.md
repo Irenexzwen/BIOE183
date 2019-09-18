@@ -83,9 +83,15 @@ do
 done
 
 ```
-`-p` Check validity of paired-end distance.
+`-p` Check validity of paired-end distance.  
+
 `-a` Name of an annotation file. GTF/GFF format by default.
 
+To compare different featureCounts results into a whole, you could utilize some Unix techniques you've learned previously.
+```Shell
+paste <(less F_head1_count.txt|cut -f1,7-|sed 1d) <(less F_head2_count.txt|cut -f1,7-|sed 1d) <(less F_midgut1_count.txt|cut -f1,7-|sed 1d) <(less F_midgut2_count.txt|cut -f1,7-|sed 1d)|cut -f 1,2,4,6,8 > all_sample_count.txt
+
+```
 
 
 ## 5.Align to the trasctriptome and quantification using alignment-free method
