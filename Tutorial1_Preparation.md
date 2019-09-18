@@ -102,6 +102,7 @@ head -n 10 m.txt        # only open the first 10 lines of m.txt
 tail -n 10 m.txt        # only open the last 10 lines of m.txt
 ```
 To learn more about linux basic operations, you could check these resources:
+- bash command notebook from UCSD people! Thanks Jessica Zhou and Bill Greenwald: [here](https://colab.research.google.com/drive/1RRxtCSvTgXnLZWnfXvHpVu8G1-yR3-bl)
 - Linux tutorial from MIT: [here](http://math.mit.edu/services/help/new/unix.php).
 - Unix/Linux tutorial from Berkeley: [here](https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html).
 
@@ -111,7 +112,7 @@ To learn more about linux basic operations, you could check these resources:
 \mnt\c   <-----> C:\
 \mnt\d   <-----> D:\
 ```
-For more tutorial on linux, I would recommended this notebook from UCSD people! 
+
 
 ## Software installation with miniconda
 Next we're going to download and install some softwares for bioinformatics analysis, especially for this project - RNAseq analysis.
