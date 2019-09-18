@@ -102,7 +102,7 @@ head -n 10 m.txt        # only open the first 10 lines of m.txt
 tail -n 10 m.txt        # only open the last 10 lines of m.txt
 ```
 To learn more about linux basic operations, you could check these resources:
-- bash command notebook from UCSD people! Thanks Jessica Zhou and Bill Greenwald: [here](https://colab.research.google.com/drive/1RRxtCSvTgXnLZWnfXvHpVu8G1-yR3-bl)
+- bash command notebook from UCSD people! Thanks Jessica Zhou and Bill Greenwald (be sure to use jaccob engineering email to login): [here](https://colab.research.google.com/drive/1RRxtCSvTgXnLZWnfXvHpVu8G1-yR3-bl)
 - Linux tutorial from MIT: [here](http://math.mit.edu/services/help/new/unix.php).
 - Unix/Linux tutorial from Berkeley: [here](https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html).
 
