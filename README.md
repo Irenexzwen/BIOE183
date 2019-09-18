@@ -7,6 +7,7 @@
 4) [Differential analysis](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial4_DE.md)
 
 ## Raw Sample files:
+### 1)Sample for Raw Data cleaning illustration
 We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome), the data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
 and generated 76bp paired-end sequence data using poly-(A)+ selected RNA. 
 
@@ -16,16 +17,46 @@ Download data from ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercis
 - [6h_post_fertilisation_R1.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/6h_1.fastq)
 - [6h_post_fertilisation_R2.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/6h_2.fastq)
 
-## Cleaning Fastq
-- [2cells_R1_clean.fastq](https://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/cleanReads/2cells_R1_clean.fastq)
-- [2cells_R2_clean.fastq](https://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/cleanReads/2cells_R1_clean.fastq)
-- [6h_R1_clean.fastq](https://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/cleanReads/6h_R1_clean.fastq)
-- [6h_R2_clean.fastq](https://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/cleanReads/6h_R2_clean.fastq)
-## Sample alignment files 
+### 2)Sample for the homework
+We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyAtlas2/index.html), which collect hundreds of RNAseq data of drosophila melanogaster. You could search by gene, category or tissue. Here we downloaded 4 samples (female_head x 2, female_midgut x 2).
+- [female_head1_R1_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R1_001.fastq.gz)
+- [female_head1_R2_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R2_001.fastq.gz)
 
-## Sample read count table
+- [female_head2_R1_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R1_001.fastq.gz )
+- [female_head2_R2_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R2_001.fastq.gz )
 
-## R Script
+- [female_midgut1_R1_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_1.fastq.gz)
+- [female_midgut1_R2_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_2.fastq.gz )
+
+- [female_midgut2_R1_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_1.fastq.gz)
+- [female_midgut2_R2_raw](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_2.fastq.gz)
+
+## Clean Data
+- [female_head1_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq)
+- [female_head1_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
+                   
+- [female_head2_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq)
+- [female_head2_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
+
+- [female_midgut1_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq)
+- [female_midgut1_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
+                     
+- [female_midgut2_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq)
+- [female_midgut2_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
+
+## Mapping .bam file
+- [female_head1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_head2_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_midgut1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_midgut2_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_STAR_genomeAligned.sortedByCoord.out.bam)
+
+## FeatureCounts Count table
+- [female_head1_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_count.txt)
+- [female_head2_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_count.txt)
+- [female_midgut1_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_count.txt)
+- [female_midgut2_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_count.txt)
+
+- [all sample](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt)
 
 ## Recourses:
 #### 1.Tutorials:
