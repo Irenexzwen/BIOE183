@@ -1,5 +1,5 @@
 # Tutorial3 Mapping and Quantification
-In this tutorial you're gonna learn how to map the RNAseq data to a zebrafish reference genome and quantify each gene's expression level. 
+In this tutorial you're gonna learn how to map the RNAseq data to a drosophila reference genome and quantify each gene's expression level. 
 
 ## 1.Introduction of Reads mapping
 http://chagall.med.cornell.edu/RNASEQcourse/Slides_July2019_Day2.pdf
@@ -13,17 +13,17 @@ You could download reference genome / transcriptome / gtf files of your familiar
 If you are analyzing Human or Mouse, you could also try Genecode.
 
 ```Shell
-# Download zebrafish genome reference sequence 
-wget ftp://ftp.ensembl.org/pub/release-97/fasta/danio_rerio/dna/Danio_rerio.GRCz11.dna_rm.primary_assembly.fa.gz
-gzip -d Danio_rerio.GRCz11.dna_rm.primary_assembly.fa.gz  # decompress .gz file 
+# Download drosophila genome reference sequence 
+wget ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa.gz
+gzip -d Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa.gz  # decompress .gz file 
 
-# Download zebrafish transctiptome (cDNA) sequence
-wget ftp://ftp.ensembl.org/pub/release-97/fasta/danio_rerio/cdna/Danio_rerio.GRCz11.cdna.all.fa.gz
-gzip -d Danio_rerio.GRCz11.dna_rm.primary_assembly.fa.gz
+# Download drosophila transctiptome (cDNA) sequence
+wget ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz
+gzip -d Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz
 
-# Download zebrafish annotation gtf file
-ftp://ftp.ensembl.org/pub/release-97/gtf/danio_rerio/Danio_rerio.GRCz11.97.chr.gtf.gz
-gzip -d Danio_rerio.GRCz11.97.chr.gtf.gz
+# Download drosophila annotation gtf file
+wget ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
+gzip -d Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 ```
 ## 4.Align to the genome and quatification
 We will use STAR to align reads to the whole genome.
