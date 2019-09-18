@@ -83,6 +83,9 @@ do
 done
 
 ```
+`-p` Check validity of paired-end distance.
+`-a` Name of an annotation file. GTF/GFF format by default.
+
 
 
 ## 5.Align to the trasctriptome and quantification using alignment-free method
@@ -106,7 +109,7 @@ kallisto quant -i /mnt/d/UCSD/RNAseq/reference/transcriptome/zebrafish_transcrip
 Now you've finished the kallisto alignment step, the results of the abundance of different genes are summarized in the file 
 `abundance.tsv`. Be careful that the two samples's abundance file are of the same name. 
 
-Next we will use the gene expression table (from kallisto) of the two sample to do differential expression analysis. 
+
 
 
 
