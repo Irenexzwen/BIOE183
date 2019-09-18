@@ -177,7 +177,7 @@ Install packages:
 ```Shell
 conda install fastp=0.20.0 
 conda install fastqc=0.11.8
-conda install minimap2=2.17
+conda install subread=1.6.4
 conda install samtools=1.9
 conda install htseq=0.11.2
 conda install hisat2=2.1.0
