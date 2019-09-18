@@ -1,11 +1,10 @@
 # BIOE183
 
-## Course notes:
-1)
-2)
-3)
-4)
-5)
+## Homework notes:
+1) [Working environment setup](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial1_Preparation.md)
+2) [Raw Data QC and Cleaning](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial2_RawData.md)
+3) [Mapping and quantification](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial3_Mapping_and_qualification.md)
+4) [Differential analysis](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial4_DE.md)
 
 ## Raw Sample files:
 We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome), the data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
