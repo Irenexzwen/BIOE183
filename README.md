@@ -38,9 +38,15 @@ We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyA
 
 ## Reference genome.fa / transcriptome.fa / gtf
 We usually download the reference data from [ensemble](https://uswest.ensembl.org/info/data/ftp/index.html). You search "drosophila" and choose DNA / cDNA / gtf. 
-- drosophila genome: ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa.gz
-- drosophila transcriptome: ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz
-- drosophila gtf: ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
+- drosophila genome: 
+ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa.gz
+
+- drosophila transcriptome: 
+ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz
+
+- drosophila gtf: 
+ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
+
 ## Mapping .bam file
 - [female_head1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
 - [female_head2_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_STAR_genomeAligned.sortedByCoord.out.bam)
