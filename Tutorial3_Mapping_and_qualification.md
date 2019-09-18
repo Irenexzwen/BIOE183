@@ -59,7 +59,12 @@ After we build the index, we're gonna map our reads towards the genome.
 ```Shell
 for i in F_head1 F_head2 F_midgut1 F_midgut2
 do
-printf "STAR --runThreadN 20 --genomeDir /dataOS/wenxingzhao/class/BIOE183/DS/reference/genome_STARidx --readFilesIn /dataOS/wenxingzhao/class/BIOE183/DS/${i}*/${i}_clean_R1.fq /dataOS/wenxingzhao/class/BIOE183/DS/${i}*/${i}_clean_R2.fq --outSAMtype BAM SortedByCoordinate --outFileNamePrefix ./${i}_STAR_genome" > ${i}_STAR.sh
+printf "STAR 
+        --runThreadN 20 
+        --genomeDir /DS/reference/genome_STARidx 
+        --readFilesIn /${i}_clean_R1.fq /${i}*/${i}_clean_R2.fq 
+        --outSAMtype BAM SortedByCoordinate 
+        --outFileNamePrefix ./${i}_STAR_genome" > ${i}_STAR.sh
         bash ${i}_STAR.sh 
 done
 ```
@@ -72,7 +77,8 @@ Once you get the bam file (which records each reads align to which specific loca
 ```Shell
 for i in F_head1 F_head2 F_midgut1 F_midgut2
 do
-        printf "/dataOS/wenxingzhao/software/featureCounts/subread-1.6.4-Linux-x86_64/bin/featureCounts -p -a /dataOS/wenxingzhao/class/BIOE183/DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf -T 10 -o ${i}_count.txt /dataOS/wenxingzhao/class/BIOE183/DS/quant/STAR/${i}*.bam" > ${i}.sh
+        printf "
+        /software/featureCounts/subread-1.6.4-Linux-x86_64/bin/featureCounts -p -a                                /dataOS/wenxingzhao/class/BIOE183/DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf -T 10 -o ${i}_count.txt /dataOS/wenxingzhao/class/BIOE183/DS/quant/STAR/${i}*.bam" > ${i}.sh
         bash ${i}.sh 
 done
 
