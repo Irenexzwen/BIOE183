@@ -34,11 +34,11 @@ conda install star
 STAR -h 
 
 # build index
-STAR --runThreadN 3 --runMode genomeGenerate \
---genomeDir /mnt/d/UCSD/RNAseq/STAR_index \                    
---genomeFastaFiles /mnt/d/UCSD/RNAseq/reference/genome/Danio_rerio.GRCz11.dna_rm.primary_assembly.fa \  
---sjdbGTFfile /mnt/d/UCSD/RNAseq/reference/gtf/Danio_rerio.GRCz11.97.chr.gtf \
---sjdbOverhang 74                                                
+STAR --runThreadN 10 --runMode genomeGenerate \
+--genomeDir /DS/reference/genome_STARidx \
+--genomeFastaFiles /DS/reference/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa \
+--sjdbGTFfile /DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf \
+--sjdbOverhang 100 #reads length minus 1                                               
 ```
 
 `--runThreadN` Threads you use to run on your computer.  
@@ -78,7 +78,9 @@ Once you get the bam file (which records each reads align to which specific loca
 for i in F_head1 F_head2 F_midgut1 F_midgut2
 do
         printf "
-        /software/featureCounts/subread-1.6.4-Linux-x86_64/bin/featureCounts -p -a                                /dataOS/wenxingzhao/class/BIOE183/DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf -T 10 -o ${i}_count.txt /dataOS/wenxingzhao/class/BIOE183/DS/quant/STAR/${i}*.bam" > ${i}.sh
+        featureCounts -p -a                                 
+        /DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf -T 10 -o ${i}_count.txt 
+        /DS/quant/STAR/${i}*.bam" > ${i}.sh
         bash ${i}.sh 
 done
 
@@ -104,16 +106,14 @@ kallisto -h
 
 # build index
 mkdir kallisto_index && cd kallisto_index
-kallisto index -i zebrafish_transcriptome.idx Danio_rerio.GRCz11.cdna.all.fa.gz
+kallisto index -i drosophila_transcriptome.idx PATHTO/Drosophila_melanogaster.BDGP6.22.cdna.all.fa
 
 # quantification
-kallisto quant -i /mnt/d/UCSD/RNAseq/reference/transcriptome/zebrafish_transcriptome.idx -o /mnt/d/UCSD/RNAseq/quant/2cell /mnt/d/UCSD/RNAseq/fastp/2cells_R1_clean.fastq /mnt/d/UCSD/RNAseq/fastp/2cells_R2_clean.fastq 
-
-kallisto quant -i /mnt/d/UCSD/RNAseq/reference/transcriptome/zebrafish_transcriptome.idx -o /mnt/d/UCSD/RNAseq/quant/6h /mnt/d/UCSD/RNAseq/fastp/6h_R1_clean.fastq /mnt/d/UCSD/RNAseq/fastp/6h_R2_clean.fastq
+kallisto quant -i drosophila_transcriptome.idx -o /quant_kallisto/F_head1 PATH_TO_clean_R1.fq PATH_TO_clean_R2.fa
 ```
 
 Now you've finished the kallisto alignment step, the results of the abundance of different genes are summarized in the file 
-`abundance.tsv`. Be careful that the two samples's abundance file are of the same name. 
+`abundance.tsv`. Be careful that the four samples's abundance file are of the same name. 
 
 
 
