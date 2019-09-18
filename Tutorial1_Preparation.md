@@ -111,7 +111,7 @@ To learn more about linux basic operations, you could check these resources:
 \mnt\c   <-----> C:\
 \mnt\d   <-----> D:\
 ```
-
+For more tutorial on linux, I would recommended this notebook from UCSD people! 
 
 ## Software installation with miniconda
 Next we're going to download and install some softwares for bioinformatics analysis, especially for this project - RNAseq analysis.
