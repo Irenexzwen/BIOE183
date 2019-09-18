@@ -37,7 +37,7 @@ We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyA
 - [[female_midgut2_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq),[[female_midgut2_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
 
 ## Reference genome.fa / transcriptome.fa / gtf
-We usually download the reference data from [ensemble](https://uswest.ensembl.org/info/data/ftp/index.html)
+We usually download the reference data from [ensemble](https://uswest.ensembl.org/info/data/ftp/index.html).
 - [drosophila genome](ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa.gz)
 - [drosophila transcriptome](ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz)
 - [drosophila gtf](ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz)
