@@ -28,17 +28,13 @@ We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyA
 - [[female_midgut2_R1_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_1.fastq.gz),[[female_midgut2_R2_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_2.fastq.gz)
 
 ## Clean Data
-- [female_head1_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq)
-- [female_head1_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
+- [[female_head1_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq),[[female_head1_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
                    
-- [female_head2_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq)
-- [female_head2_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
+- [[female_head2_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq),[[female_head2_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
 
-- [female_midgut1_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq)
-- [female_midgut1_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
+- [[female_midgut1_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq),[[female_midgut1_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
                      
-- [female_midgut2_R1_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq)
-- [female_midgut2_R2_clean](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
+- [[female_midgut2_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq),[[female_midgut2_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
 
 ## Mapping .bam file
 - [female_head1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
