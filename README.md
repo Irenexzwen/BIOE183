@@ -1,4 +1,4 @@
-# BIOE183
+# BENG183
 
 ## Homework notes:
 1) [Working environment setup](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial1_Preparation.md)
