@@ -1,9 +1,8 @@
 # Tutorial 1 Preparation  
 In this tutorial, you will learn to 
-  1) set up your laptop environment,
+  1) set up Linux environment on your laptop (for Windows users),
   2) learn Linux basics,
-  3) learn R basics,
-  4) download and install softwares required for later sessions of this course.
+  3) download and install softwares useful for genomic data analysis and required for this course.
   
 ## Working environment
 
@@ -19,6 +18,9 @@ Beyond that, Linux OS is also
 - Great habitat for a lot of open source softwares ( especially the ones for bioinformatics ). 
 
 # Prepare a linux working environment
+## My system is MacOS:
+You can directly type Linux commands on your computer. Go to Linux basics.
+
 ## My system is windows:
 For windows users, your options would be: 
 1) Download one linux system distribution from windows store ( Ubuntu recommended ).
@@ -38,10 +40,6 @@ Basically the steps include:
 Once you finished that, you should see something like this:
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ubuntu.png">
 Now you're officially logged into a linux system on your own computer! Next, we're going to learn more linux skills that will enable you to walk around your computer file system as easy as your familiar system. 
-
-
-## My system is MacOS:
-
 
 # Linux basics:
 The file system structure of linux is hierarchical, everything is a file (document, .exe, script, .mp3 etc) at a specific layer of the system. Unlike windows, which store files on different drives (C: D: G: etc). The "/" is the root of the whole system, and any other files are stored in different levels of the tree. Important folders have been listed below, about their naming tradition one can refer to [here](http://www.linuxstories.net/linux-directory-structure-file-system-structure/).
@@ -124,8 +122,10 @@ For example, I'm gonna download and install it on D:\Miniconda on my own compute
 $ cd /mnt/d
 $ mkdir Miniconda
 $ cd Miniconda
-$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  
-$ bash Miniconda3-latest-Linux-x86_64.sh  
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  # for Windows users
+$ bash Miniconda3-latest-Linux-x86_64.sh # for Windows users 
+$ wget wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh  # for Mac users
+$ bash Miniconda3-latest-MacOSX-x86_64.sh # for Mac users 
 
 ```
 `wget` download the script into the folder, `bash x.sh` is excute x.sh file. During the installation you are required to follow the instructions prompted from Miniconda.  
@@ -135,7 +135,7 @@ If you install conda with default setting, the excutable conda usually locates i
 
 Now we need to add that path into our environment default path so that you could use `conda` anywhere.
 ```Shell
-export PATH="$PATH:/home/ucsd_bioe/miniconda3/bin/"
+export PATH="/path/to/your/miniconda3/bin/:$PATH"
 conda   # running conda, now you should see the conda is successfully installed.
 ```
 
@@ -153,7 +153,7 @@ Close your current bash and restart ubuntu. Now you could see `(base)` has been 
 
 ```Shell
 conda activate rnaseq                   # activate a new environment called rnaseq
-conda deactivate rnaseq                 # deactivate 
+conda deactivate                 		# deactivate 
 ```
 
 Add bioconda source:
