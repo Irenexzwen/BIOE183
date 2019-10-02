@@ -1,13 +1,13 @@
 # Tutorial 1 Preparation  
-In this tutorial, you're gonna learn how to 
-  1) get the working environment ready.
-  2) Learn Linux basics.
-  3) Learn R basics.
-  4) Download and install softwares that will be used in the later sessions.
+In this tutorial, you will learn to 
+  1) set up your laptop environment,
+  2) learn Linux basics,
+  3) learn R basics,
+  4) download and install softwares required for later sessions of this course.
   
 ## Working environment
 
-Most bioinformatics analysis are deal with super large datasets (over few gigabytes even hundreds gigabytes), which is impracticle for manual checking and modification. 
+Most bioinformatics analysis deals with very large datasets (from hundreds of GBs to several TB), which is impractical for manual checking and modification. 
 In this case, most bioinformatics person put linux/Unix in their daily toolbox. With a lot commands that especially designed for large text file,
 you're able to sort / extract / subsititute / get the head / get the tail / search super fast without loading the whole file into your memory 
 ( as you will load the big file into your memory if it is opened in a windows / mac text reader ).
