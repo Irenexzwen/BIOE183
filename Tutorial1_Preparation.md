@@ -124,7 +124,7 @@ $ mkdir Miniconda
 $ cd Miniconda
 $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  # for Windows users
 $ bash Miniconda3-latest-Linux-x86_64.sh # for Windows users 
-$ wget wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh  # for Mac users
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh  # for Mac users
 $ bash Miniconda3-latest-MacOSX-x86_64.sh # for Mac users 
 
 ```
