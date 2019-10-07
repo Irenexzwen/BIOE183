@@ -48,16 +48,16 @@ ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophi
 ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 
 ## Mapping .bam file
-- [female_head1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
-- [female_head2_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_STAR_genomeAligned.sortedByCoord.out.bam)
-- [female_midgut1_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_STAR_genomeAligned.sortedByCoord.out.bam)
-- [female_midgut2_bam](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_head1_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_head2_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_midgut1_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_STAR_genomeAligned.sortedByCoord.out.bam)
+- [female_midgut2_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_STAR_genomeAligned.sortedByCoord.out.bam)
 
 ## FeatureCounts Count table
-- [female_head1_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_count.txt)
-- [female_head2_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_count.txt)
-- [female_midgut1_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_count.txt)
-- [female_midgut2_count](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_count.txt)
+- [female_head1_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_count.txt)
+- [female_head2_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_count.txt)
+- [female_midgut1_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_count.txt)
+- [female_midgut2_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_count.txt)
 
 - [all sample](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt)
 
