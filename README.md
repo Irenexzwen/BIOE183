@@ -19,22 +19,22 @@ Download data from ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercis
 
 ### 2)Sample for the homework
 We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyAtlas2/index.html), which collect hundreds of RNAseq data of drosophila melanogaster. You could search by gene, category or tissue. Here we downloaded 4 samples (female_head x 2, female_midgut x 2).
-- [[female_head1_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R1_001.fastq.gz),[[female_head1_R2_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R2_001.fastq.gz)
+- [[female_head1_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R1_001.fastq.gz),[[female_head1_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R2_001.fastq.gz)
 
-- [[female_head2_R1_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R1_001.fastq.gz), [[female_head2_R2_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R2_001.fastq.gz )
+- [[female_head2_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R1_001.fastq.gz), [[female_head2_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R2_001.fastq.gz )
 
-- [[female_midgut1_R1_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_1.fastq.gz),[[female_midgut1_R2_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_2.fastq.gz )
+- [[female_midgut1_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_1.fastq.gz),[[female_midgut1_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-009_TP-D5-001_2.fastq.gz )
 
-- [[female_midgut2_R1_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_1.fastq.gz),[[female_midgut2_R2_raw]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_2.fastq.gz)
+- [[female_midgut2_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_1.fastq.gz),[[female_midgut2_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/160825_D00261_0358_BC9JAVANXX_1_TP-D7-010_TP-D5-008_2.fastq.gz)
 
 ## Clean Data
-- [[female_head1_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq),[[female_head1_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
+- [[female_head1_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq),[[female_head1_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
                    
-- [[female_head2_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq),[[female_head2_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
+- [[female_head2_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq),[[female_head2_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
 
-- [[female_midgut1_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq),[[female_midgut1_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
+- [[female_midgut1_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq),[[female_midgut1_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
                      
-- [[female_midgut2_R1_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq),[[female_midgut2_R2_clean]](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
+- [[female_midgut2_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq),[[female_midgut2_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
 
 ## Reference genome.fa / transcriptome.fa / gtf
 We usually download the reference data from [ensemble](https://uswest.ensembl.org/info/data/ftp/index.html). You search "drosophila" and choose DNA / cDNA / gtf, then you use a `wget` to download.
