@@ -59,7 +59,7 @@ ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_mela
 - [female_midgut1_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut1_count.txt)
 - [female_midgut2_count](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_midgut2_count.txt)
 
-- [all sample](sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt)
+- [all sample](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt)
 
 ## Recourses:
 #### 1.Tutorials:
