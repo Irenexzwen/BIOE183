@@ -8,7 +8,7 @@
 
 ## Raw Sample files:
 ### 1)Sample for Raw Data cleaning illustration
-We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome), the data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
+We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome). This data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
 and generated 76bp paired-end sequence data using poly-(A)+ selected RNA. 
 
 Download data from ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/
@@ -18,7 +18,7 @@ Download data from ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercis
 - [6h_post_fertilisation_R2.fastq](ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/6h_2.fastq)
 
 ### 2)Sample for the homework
-We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyAtlas2/index.html), which collect hundreds of RNAseq data of drosophila melanogaster. You could search by gene, category or tissue. Here we downloaded 4 samples (female_head x 2, female_midgut x 2).
+We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyAtlas2/index.html), which collects hundreds of RNAseq data of drosophila melanogaster. You can search by gene, category or tissue. Here we downloaded 4 samples (female_head x 2, female_midgut x 2).
 - [[female_head1_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R1_001.fastq.gz),[[female_head1_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0008_GCCAAT_L001_R2_001.fastq.gz)
 
 - [[female_head2_R1_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R1_001.fastq.gz), [[female_head2_R2_raw]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/2089N0007_ACAGTG_L001_R2_001.fastq.gz )
