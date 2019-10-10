@@ -1,8 +1,8 @@
 # Discussion Tutorial: Cluster Analysis Tools in R
 In this tutorial, you will:
-  1) [Set up R environment on your laptop](#prepare-the-r-working-environment),
-  2) [Learn the basics of the R language](#r-basics),
-  3) [Perform cluster analysis in R](#cluster-analysis-in-r).
+  1) [Set up R environment on your laptop](#1-prepare-the-r-working-environment),
+  2) [Learn the basics of the R language](#2-r-basics),
+  3) [Perform cluster analysis in R](#3-cluster-analysis-in-r).
 
 ## What is R?
 R is a language and environment for statistical computing and graphics. It provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible. It includes:
@@ -14,7 +14,7 @@ R is a language and environment for statistical computing and graphics. It provi
 
 More information and documentation about R can be found on their [website](https://www.r-project.org/).
 
-# Prepare the R working environment
+# 1) Prepare the R working environment
 First, download and install R on your computer from the website [here](https://cran.rstudio.com/). R is supported on Windows, Mac, and Linux platforms.
 
 Next, download and install [RStudio Desktop](https://rstudio.com/products/rstudio/download/). RStudio provides a convenient GUI to work with R and includes a console, syntax-highlighting editor that supports direct code execution, and a variety of robust tools for plotting, viewing history, debugging and managing your workspace.
@@ -23,7 +23,7 @@ Next, download and install [RStudio Desktop](https://rstudio.com/products/rstudi
 
 Once everything is installed, simply find and launch RStudio from your computer. 
 
-# R basics
+# 2) R basics
 R is a command line driven program. Within the console, the user enters commands at the prompt (> by default) and each command is executed one at a time.
 
 The workspace is your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions). At the end of an R session, the user can save an image of the current workspace that is automatically reloaded the next time R is started.
@@ -91,7 +91,7 @@ search()                        # see packages currently loaded
 
 More shortcuts are listed [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts).
 
-# Cluster Analysis in R
+# 3) Cluster Analysis in R
 
 
 # References
