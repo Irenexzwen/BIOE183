@@ -8,7 +8,7 @@
 
 ## Raw Sample files:
 ### 1)Sample for Raw Data cleaning illustration
-We will use a dataset from a previous [EBI traning courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome). This data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
+We will use a dataset from a previous [EBI training courses](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome). This data is derived from sequencing of mRNA from zebrafish embryos in two diﬀerent developmental stages. Sequencing was performed on the Illumina platform
 and generated 76bp paired-end sequence data using poly-(A)+ selected RNA. 
 
 Download data from ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/
