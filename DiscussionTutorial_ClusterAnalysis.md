@@ -3,7 +3,7 @@ In this tutorial, you will:
   1) [Set up R environment on your laptop](#1-prepare-the-r-working-environment),
   2) [Learn the basics of the R language](#2-r-basics),
   3) [Perform cluster analysis in R](#3-cluster-analysis-in-r).
-
+  
 ## What is R?
 R is a language and environment for statistical computing and graphics. It provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible. It includes:
 - an effective data handling and storage facility,
@@ -96,7 +96,7 @@ Now, we will use R to perform two types of clustering methods on a dataset:
   1) [K-Means Clustering](#k-means-clustering)
   2) [Hierarchical Clustering](#hierarchical-clustering)
 
-For convenience, all of the code used in this tutorial is compiled into a single R script [here](https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R).
+For convenience, all of the code used in this tutorial has been compiled into a single R script [here](https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R).
 
 ## Package Requirements
 For this tutorial, you will need to load the following packages:
