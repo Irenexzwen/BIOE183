@@ -93,10 +93,10 @@ More shortcuts are listed [here](https://support.rstudio.com/hc/en-us/articles/2
 
 # 3) Cluster Analysis in R
 Now, we will use R to perform two types of clustering methods on a dataset:
-  1) [K-Means Clustering](#k-means-clustering)
-  2) [Hierarchical Clustering](#hierarchical-clustering)
+  1) K-Means Clustering
+  2) Hierarchical Clustering
 
-For convenience, all of the code used in this tutorial has been compiled into a single R script which you can download [here](https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R) and use in RStudio.
+For convenience, all of the code used in this tutorial has been compiled into a single R script which you can download from [here](https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R) to use in RStudio.
 
 ## Package Requirements
 For this tutorial, you will need to load the following packages:
