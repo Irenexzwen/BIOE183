@@ -33,7 +33,7 @@ Patient      | Gene 1 Expression | Gene 2 Expression |
 ### a. Describe the various levels of genome folding in a eukaryotic nucleus.
 ### b. What information regarding the chromosome do we gain from the Hi-C technique? Briefly describe the protocol used.
 ### c. Describe the differences between the equilibrium and fractal globule models for chromatin architecture. Which is more appealing? Why?
-## 3. Online tutorial 1: Linux environment setup (https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial1_Preparation.md)
+## 5. Online tutorial 2: Raw Data QC and Cleaning [https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial2_RawData.md]
 Please go through Tutorial 2 to QC check and clean the given sample sequences. Afterwards, complete the following tasks:
 ### a.	Attach a screenshot of your per sequence GC content for the 6h_1_fastqc and 2cells_1_fastqc fastQC reports.
 ### b.	From the fastp report, attach a screenshot of the 6hr sample duplication rate plot.
