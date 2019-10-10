@@ -92,7 +92,38 @@ search()                        # see packages currently loaded
 More shortcuts are listed [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts).
 
 # 3) Cluster Analysis in R
+## Package Requirements
+For this tutorial, you will need to load the following packages:
+```
+library(tidyverse)        # data manipulation
+library(cluster)          # clustering algorithms
+library(factoextra)       # clustering algorithms & visualization
+library(cluster.datasets) # sample datasets for cluster analysis
+library(gridExtra)        # for plotting multiple plots in grid
+library(dendextend)       # for comparing two dendrograms
+```
+Note: You may need to install the packages first by running `install.packages("packagename")` before you can load them.
 
+## Data Preparation
+To perform a cluster analysis in R, generally, the data should be prepared as follows:
+  1) Rows are observations (individuals) and columns are variables
+  2) Any missing value in the data must be removed or estimated.
+  3) The data must be standardized (i.e., scaled) to make variables comparable. Recall that, standardization consists of transforming the variables such that they have mean zero and standard deviation one.
+
+Here, we'll use a dataset from the "cluster.datasets" package called `acidosis.patients`, which contains measures of various compounds in cerebrospinal fluid and blood for 40 acidosis patients.
+```
+ds <- acidosis.patients
+```
+To remove any missing values that might be present in the data, type this:
+```
+ds <- na.omit(ds)
+```
+Next, we scale/standardize the data using the R function `scale`:
+```
+ds <- scale(ds)
+```
+
+**More to be added soon...**
 
 # References
 This tutorial is adapted from the following material:
