@@ -1,8 +1,8 @@
 # Discussion Tutorial: Cluster Analysis Tools in R
-In this tutorial, you will learn to:
-  1) Set up R environment on your laptop,
-  2) Learn the basics of the R language,
-  3) Install and use packages for cluster analysis in R.
+In this tutorial, you will:
+  1) [Set up R environment on your laptop](#prepare-the-r-working-environment),
+  2) [Learn the basics of the R language](#r-basics),
+  3) [Perform cluster analysis in R](#cluster-analysis-in-r).
 
 ## What is R?
 R is a language and environment for statistical computing and graphics. It provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible. It includes:
@@ -28,6 +28,8 @@ R is a command line driven program. Within the console, the user enters commands
 
 The workspace is your current R working environment and includes any user-defined objects (vectors, matrices, data frames, lists, functions). At the end of an R session, the user can save an image of the current workspace that is automatically reloaded the next time R is started.
 
+You can also write an R script, which is simply a text file containing a set of commands and comments. The script can be saved and used later to re-execute the saved commands.
+
 ## Operators in R
 ### Arithmetic Operators:
 |Operator|Description   |
@@ -47,6 +49,53 @@ The workspace is your current R working environment and includes any user-define
 |!=      |Not equal to            |
 
 ## Data Types
+R has a wide variety of data types including scalars, vectors (numerical, character, logical), matrices, data frames, and lists.
+
+### Creating New Variables
+Use the assignment operator <- to create new variables.
+```
+# An example of computing the mean with variables
+
+mydata$sum <- mydata$x1 + mydata$x2
+mydata$mean <- (mydata$x1 + mydata$x2)/2
+```
+
+### Importing Data
+Importing data into R is fairly simple. R offers options to import many file types, from CSVs to databases. For example, this is how to import a CSV into R.
+```
+# first row contains variable names, comma is separator
+# assign the variable id to row names
+# note the / instead of \ on mswindows systems
+
+mydata <- read.table("c:/mydata.csv", header=TRUE,
+   sep=",", row.names="id")
+```
 
 ## Packages
+Packages are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the library. R comes with a standard set of packages. Others are available for download and installation. Once installed, they have to be loaded into the session to be used.
+```
+install.packages("packagename") # install a package
+.libPaths()                     # get library location
+library()                       # see all packages installed
+library("packagename")          # load a package
+search()                        # see packages currently loaded
+```
 
+## Useful Keyboard Shortcuts for RStudio
+|Description|Windows/Linux|Mac|
+|-----------|-------------|---|
+|Clear console|Ctrl+L|Ctrl+L|
+|Interrupt currently executing command|Esc|Esc|
+|Run current line/selection (in a script)|Ctrl+Enter|Command+Enter|
+|Comment/uncomment current line/selection|Ctrl+Shift+C|Command+Shift+C|
+
+More shortcuts are listed [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts).
+
+# Cluster Analysis in R
+
+
+# References
+This tutorial is adapted from the following material:
+1) https://www.statmethods.net/r-tutorial/index.html
+2) http://uc-r.github.io/kmeans_clustering
+3) https://uc-r.github.io/hc_clustering
