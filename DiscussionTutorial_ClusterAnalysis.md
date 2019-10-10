@@ -96,7 +96,7 @@ Now, we will use R to perform two types of clustering methods on a dataset:
   1) [K-Means Clustering](#k-means-clustering)
   2) [Hierarchical Clustering](#hierarchical-clustering)
 
-For convenience, all of the code used in this tutorial has been compiled into a single R script [here](https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R).
+For convenience, all of the code used in this tutorial has been compiled into a single R script <a href="https://github.com/Irenexzwen/BIOE183/blob/master/ClusteringTutorial.R" target="_blank">here</a>.
 
 ## Package Requirements
 For this tutorial, you will need to load the following packages:
@@ -219,7 +219,7 @@ set.seed(123) # set seed for random number generator to ensure reproducibility
 fviz_nbclust(ds, kmeans, method = "wss")
 ```
 
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_elbowplot.png">
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_elbowplot.png" width="600">
 
 #### Average Silhouette Method:
 In short, the average silhouette approach measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. The average silhouette method computes the average silhouette of observations for different values of *k*. The optimal number of clusters *k* is the one that maximizes the average silhouette over a range of possible values for *k*.
@@ -228,7 +228,7 @@ Again, we can implement this in R with the function `fviz_nbclust` by specifying
 ```R
 fviz_nbclust(ds, kmeans, method = "silhouette")
 ```
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_silhouetteplot.png">
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_silhouetteplot.png" width="600">
 
 ### Extracting Results
 With these approaches suggesting 3 as the optimal number of clusters, we can perform the final analysis and extract the results using 3 clusters.
@@ -362,7 +362,7 @@ It’s possible to draw the dendrogram with a border around the clusters. The ar
 plot(hc5, cex = 0.6)
 rect.hclust(hc5, k = 3, border = 2:4)
 ```
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_dendro3.png">
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/ClusteringTutorial_dendro4.png">
 
 To use `cutree` with `agnes` and `diana` you can perform the following:
  ```R
