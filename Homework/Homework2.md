@@ -14,7 +14,7 @@ Screens Negative for A | 26 | 900 |
 
 
 ## 2. Intro to Machine Learning
-### RNA-seq data has been taken from several patients at a hospital, and the expression levels of 2 genes have been determined for each.
+### RNA-seq data has been taken from several patients at a hospital, and the expression levels of 2 genes have been determined for each. Please complete the following questions **by hand**, although you are certainly welcome to use a software package to check your answer.
 Patient      | Gene 1 Expression | Gene 2 Expression |
 ------------ | ------------- | ------------- |
 1 | 0.4 | 0.7 |
