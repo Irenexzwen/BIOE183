@@ -14,7 +14,7 @@ We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyA
 
 The raw RNAseq data can be found on the [resource page](https://github.com/Irenexzwen/BIOE183/blob/master/README.md) for the homework tutorials. If you'd like, you can analyze and clean the raw data using the techniques you learned from Tutorial 2.
 
-Otherwise, we have conveniently attached the cleaned data for you here:
+Otherwise, we have conveniently provided the cleaned data for you here:
 - [[female_head1_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq),[[female_head1_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
                    
 - [[female_head2_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq),[[female_head2_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
@@ -59,7 +59,7 @@ STAR --runThreadN 10 --runMode genomeGenerate \
 
 `--runThreadN` Number of threads you use to run on your computer.  
 
-`--genomeDir` The place you want to put your reference.  
+`--genomeDir` The place you want to put your reference. (Make sure the location already exists; the command does not make a new folder.)
 
 `--genomeFastaFiles` The genome fasta file we've just downloaded and uncompressed.  
 
@@ -76,7 +76,7 @@ do
 printf "STAR 
         --runThreadN 20 
         --genomeDir /DS/reference/genome_STARidx 
-        --readFilesIn /${i}_clean_R1.fq /${i}*/${i}_clean_R2.fq 
+        --readFilesIn ${i}_clean_R1.fq ${i}_clean_R2.fq 
         --outSAMtype BAM SortedByCoordinate 
         --outFileNamePrefix ./${i}_STAR_genome" > ${i}_STAR.sh
         bash ${i}_STAR.sh 
@@ -110,7 +110,7 @@ paste <(less F_head1_count.txt|cut -f1,7-|sed 1d) <(less F_head2_count.txt|cut -
 ```
 
 
-## 5.Align to the trasctriptome and quantification using alignment-free method
+## 5.Align to the transcriptome and quantification using alignment-free method
 We will use kallisto to do pseudoalignment. 
 ```Shell
 
