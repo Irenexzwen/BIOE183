@@ -8,7 +8,22 @@ http://chagall.med.cornell.edu/RNASEQcourse/Slides_July2019_Day2.pdf
 ### 2.1 Alignment based
 ### 2.2 Alignment free
 
-## 3.Get reference sequences ready
+## 3.Get raw data and reference sequences ready
+### 3.1 Raw data cleaning and preprocessing
+We will use RNAseq data from [FlyAtlas2 database](http://flyatlas.gla.ac.uk/FlyAtlas2/index.html), which collects hundreds of RNAseq data of drosophila melanogaster. You can search by gene, category or tissue.
+
+The raw RNAseq data can be found on the [resource page](https://github.com/Irenexzwen/BIOE183/blob/master/README.md) for the homework tutorials. If you'd like, you can analyze and clean the raw data using the techniques you learned from Tutorial 2.
+
+Otherwise, we have conveniently attached the cleaned data for you here:
+- [[female_head1_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R1.fq),[[female_head1_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head1_clean_R2.fq)
+                   
+- [[female_head2_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R1.fq),[[female_head2_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_head2_clean_R2.fq)
+
+- [[female_midgut1_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R1.fq),[[female_midgut1_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut1_clean_R2.fq)
+                     
+- [[female_midgut2_R1_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R1.fq),[[female_midgut2_R2_clean]](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_raw/F_midgut2_clean_R2.fq)
+
+### 3.2 Reference sequences
 You could download reference genome / transcriptome / gtf files of your familiar species from [ENSEMBLE](https://uswest.ensembl.org/info/data/ftp/index.html).
 If you are analyzing Human or Mouse, you could also try Genecode.
 
@@ -25,7 +40,7 @@ gzip -d Drosophila_melanogaster.BDGP6.22.cdna.all.fa.gz
 wget ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 gzip -d Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 ```
-## 4.Align to the genome and quatification
+## 4.Align to the genome and quantification
 We will use STAR to align reads to the whole genome.
 ```Shell
 conda install star
@@ -40,20 +55,19 @@ STAR --runThreadN 10 --runMode genomeGenerate \
 --sjdbGTFfile /DS/reference/Drosophila_melanogaster.BDGP6.22.97.chr.gtf \
 --sjdbOverhang 100 #reads length minus 1                                               
 ```
+(Change the file paths to reflect where the respective files are located on your computer.)
 
-`--runThreadN` Threads you use to run on your computer.  
+`--runThreadN` Number of threads you use to run on your computer.  
 
 `--genomeDir` The place you want to put your reference.  
 
-`--genomeFastaFiles` The genome fasta file we're just downloaded and uncompressed.  
+`--genomeFastaFiles` The genome fasta file we've just downloaded and uncompressed.  
 
 `--sjdbGTFfile` Gtf file.  
 
 `--sjdbOverhang` Usually equals read length minus 1.  
 
-
-It might take some time to finish the alignment, and the total Memory usage peak at 10g during this process. If this memory requirement is beyond your computer, you could download the pre-computed index from our resouce page. 
-
+It might take some time to finish the alignment, and the total Memory usage peak at 10g during this process. If this memory requirement is beyond your computer, you could download the pre-computed index from our resource page. 
 
 After we build the index, we're gonna map our reads towards the genome.
 ```Shell
