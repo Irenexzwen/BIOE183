@@ -123,7 +123,7 @@ mkdir kallisto_index && cd kallisto_index
 kallisto index -i drosophila_transcriptome.idx PATHTO/Drosophila_melanogaster.BDGP6.22.cdna.all.fa
 
 # quantification
-kallisto quant -i drosophila_transcriptome.idx -o /quant_kallisto/F_head1 PATH_TO_clean_R1.fq PATH_TO_clean_R2.fa
+kallisto quant -i drosophila_transcriptome.idx -o /quant_kallisto/F_head1 PATH_TO_clean_R1.fq PATH_TO_clean_R2.fq
 ```
 
 Now you've finished the kallisto alignment step, the results of the abundance of different genes are summarized in the file 
