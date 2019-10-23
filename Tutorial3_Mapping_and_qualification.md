@@ -7,6 +7,7 @@ http://chagall.med.cornell.edu/RNASEQcourse/Slides_July2019_Day2.pdf
 ## 2.Different mapping strategy 
 ### 2.1 Alignment based
 ### 2.2 Alignment free
+More info here: [Alignment-free sequence comparison: benefits, applications, and tools](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1319-7)
 
 ## 3.Get raw data and reference sequences ready
 ### 3.1 Raw data cleaning and preprocessing
@@ -86,7 +87,7 @@ This will give you two important results:
 1) A sorted [bam file](https://support.illumina.com/help/BS_App_RNASeq_Alignment_OLH_1000000006112/Content/Source/Informatics/BAM-Format.htm) based on the coordinates.
 2) A final \*Log.final.out file that includes mapping results information: total mapping ratio / unique mapping ratio / number of mapped reads etc. 
  
-#### Quantify gene expression level use FeatureCount
+#### Quantify gene expression level using FeatureCount
 Once you get the bam file (which records each reads align to which specific locations of the genome), you may want to summarize reads abundance for each gene.   
 ```Shell
 for i in F_head1 F_head2 F_midgut1 F_midgut2
@@ -106,9 +107,26 @@ done
 To compare different featureCounts results into a whole, you could utilize some Unix techniques you've learned previously.
 ```Shell
 paste <(less F_head1_count.txt|cut -f1,7-|sed 1d) <(less F_head2_count.txt|cut -f1,7-|sed 1d) <(less F_midgut1_count.txt|cut -f1,7-|sed 1d) <(less F_midgut2_count.txt|cut -f1,7-|sed 1d)|cut -f 1,2,4,6,8 > all_sample_count.txt
-
 ```
 
+#### Normalization using bamCoverage
+bamCoverage takes an alignment of reads or fragments as input (BAM file) and generates a coverage track (bigWig or bedGraph) as output. The coverage is calculated as the number of reads per bin, where bins are short consecutive counting windows of a defined size.
+
+bamCoverage offers normalization by:
+- RPKM = Reads Per Kilobase per Million mapped reads
+- CPM = Counts Per Million mapped reads, same as CPM in RNA-seq
+- BPM = Bins Per Million mapped reads, same as TPM in RNA-seq
+- RPGC = reads per genomic content (1x normalization)
+
+You may need to install the deeptools package which has the bamCoverage tool:
+```
+conda install -c bioconda deeptools
+```
+
+To run bamCoverage with BPM (TPM) normalization:
+```
+bamCoverage -b filename.bam -o filename.bw --normalizeUsing BPM
+```
 
 ## 5.Align to the transcriptome and quantification using alignment-free method
 We will use kallisto to do pseudoalignment. 
@@ -128,9 +146,4 @@ kallisto quant -i drosophila_transcriptome.idx -o /quant_kallisto/F_head1 PATH_T
 
 Now you've finished the kallisto alignment step, the results of the abundance of different genes are summarized in the file 
 `abundance.tsv`. Be careful that the four samples's abundance file are of the same name. 
-
-
-
-
-
 
