@@ -83,7 +83,7 @@ printf "STAR
 done
 ```
 This will give you two important results:
-1) A sorted [bam file](https://support.illumina.com/help/BS_App_RNASeq_Alignment_OLH_1000000006112/Content/Source/Informatics/BAM-Format.html) based on the coordinates.
+1) A sorted [bam file](https://support.illumina.com/help/BS_App_RNASeq_Alignment_OLH_1000000006112/Content/Source/Informatics/BAM-Format.htm) based on the coordinates.
 2) A final \*Log.final.out file that includes mapping results information: total mapping ratio / unique mapping ratio / number of mapped reads etc. 
  
 #### Quantify gene expression level use FeatureCount
