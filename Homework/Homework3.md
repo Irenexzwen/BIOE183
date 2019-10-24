@@ -17,7 +17,7 @@ Total: 10 points
 ## 2.	Online Tutorial 3: Mapping and Quantification
 Please go through [Tutorial 3](https://github.com/Irenexzwen/BIOE183/blob/master/Tutorial3_Mapping_and_qualification.md) to learn how to map RNAseq data to a reference genome and quantify each gene's expression level, and complete the following tasks:
 
-### a.	After mapping the reads to the genome, look at the contents of one of the *Log.final.out files. (You can use the cat function to print the file contents in the terminal.) Notice that it lists the statistics for 4 types of reads: unique, multi-mapping, unmapped, and chimeric.
+### a.	After mapping the reads to the genome, look at the contents of one of the *Log.final.out files. (You can use the `cat` function to print the file contents in the terminal.) Notice that it lists the statistics for 4 types of reads: unique, multi-mapping, unmapped, and chimeric.
 
   i.	How does your percentage of unmapped reads compare to the percentage of mapped reads?
 
@@ -31,6 +31,6 @@ Please go through [Tutorial 3](https://github.com/Irenexzwen/BIOE183/blob/master
 
   ii.	You should see a noticeable difference in coverage between the head samples and the midgut samples. What could these differences suggest? Can you make any definitive conclusions about gene expression just by comparing these coverage plots? Why or why not?
 
-### c.	After quantifying gene expression level using FeatureCount, you will end up with a *count.txt.summary file for each of the four samples (head1, head2, midgut1, midgut2). Use cat to print out the content of each summary file and attach screenshots of the results.
+### c.	After quantifying gene expression level using FeatureCount, you will end up with a *count.txt.summary file for each of the four samples (head1, head2, midgut1, midgut2). Use `cat` to print out the content of each summary file and attach screenshots of the results.
 
 ### d.	Kallisto uses an alignment-free method to map reads. Explain, in general, how an alignment-free method works. What are some advantages of alignment-free methods?
