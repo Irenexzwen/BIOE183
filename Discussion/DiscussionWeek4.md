@@ -1,21 +1,21 @@
 # Discussion session Week 4
 Mapping reads with STAR and visualization of mapped data with IGV
 
-### 1. Download required data
-Download IGV browser (https://software.broadinstitute.org/software/igv/download)
+### 1. Download required data/software
+1) IGV browser (https://software.broadinstitute.org/software/igv/download)
 
-reference genome of Drosophila
+2) reference genome of Drosophila
 ```bash
 wget http://homer.ucsd.edu/zeyang/BENG183/Drosophila_melanogaster.BDGP6.22.dna.toplevel.2R.fa
 ```
 
-annotations of genes (information of where exons and introns are so that reads can be mapped even if there is splicing)
+3) annotations of genes (information of where exons and introns are so that reads can be mapped even if there is splicing)
 ```bash
 wget ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 gzip -d Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 ```
 
-fastq files
+4) fastq files
 ```bash
 wget http://homer.ucsd.edu/zeyang/BENG183/lib_002_mapped.1.fastq
 wget http://homer.ucsd.edu/zeyang/BENG183/lib_002_mapped.2.fastq
