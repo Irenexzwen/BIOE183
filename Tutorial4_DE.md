@@ -1,23 +1,6 @@
-# Tutorial4 Differential expressed gene analysis
+# Tutorial4 Analysis of differentially expressed (DE) genes
 
-## What is differentially expressed genes?
-- basic principle
-- biological / technical replicates
-
-## DE analysis without biological replicates
-
-- Null hypothesis
-- Fold Change estimates
-- which distribution
-
-## DE analysis with biological replicates
-- Principles
-- Introduction to how DESeq2 or edgeR works
-
-[short reference](http://chagall.med.cornell.edu/RNASEQcourse/Slides_July2019_Day4.pdf)
-
-
-## DE analysis in R
+## DE analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 
 ### R basics 
 R is a language and environment for statistical computing and graphics. 
@@ -33,7 +16,7 @@ It's always good for you to learn some R basics. Use more google if any task sou
 
 ### DE analysis with DESeq2
 ```R
-# google how to install these packages if you haven't installed yet
+# Install required packages
 requrie(dplyr)
 require(DESeq2)
 require(ggplot2)
@@ -42,7 +25,7 @@ require(ggfortify)
 
 # read in the summarize raw count table
 
-table <- read.table("D:/UCSD/class/all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
+table <- read.table("all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
 
 # have a glance of what the four sample looks like, using a PCA plot
 ggplot2::autoplot(prcomp(t(table)),label=TRUE)
@@ -99,7 +82,6 @@ require(pheatmap)
 table <- read.table("D:/UCSD/class/all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
 pheatmap::pheatmap(log(table+1),show_rownames = F)
 ```
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/all_gene_heatmap.png">
 
 2) PCA plot
 ```R
@@ -108,12 +90,9 @@ ggplot2::autoplot(ggfortify::prcomp(t(table)),label=TRUE)
 Principal component analysis (PCA) is the most simple but direct way to visualize a high dimentional data in a low dimensional space.
 If you're not familiar with PCA, please make sure understand it use any resource you could find! 
 
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/PCA_DS.png">
-
 3) Visualize top DE genes (sorted by adjusted pvalue)
 ```R
 
 deheat <- table[rownames(head(degenes,20)),] %>% as.matrix
 pheatmap::pheatmap(log(deheat+1))
 ```
-<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/topDE.png">
