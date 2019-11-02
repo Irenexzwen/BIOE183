@@ -79,7 +79,7 @@ Since there are tens of thousands genes we can't check them manually. We usually
 In R you could simply plot a heatmap use `pheatmap` package:
 ```R
 require(pheatmap)
-table <- read.table("D:/UCSD/class/all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
+table <- read.table("all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
 pheatmap::pheatmap(log(table+1),show_rownames = F)
 ```
 
