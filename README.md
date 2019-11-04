@@ -47,6 +47,9 @@ ftp://ftp.ensembl.org/pub/release-97/fasta/drosophila_melanogaster/cdna/Drosophi
 - drosophila gtf: 
 ftp://ftp.ensembl.org/pub/release-97/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.22.97.chr.gtf.gz
 
+## Index files
+Pre-computed index files: [download here](https://drive.google.com/open?id=1CT-iZ2PzPwWa44KxhjYsv4pD5GnnJStg)
+
 ## Mapping .bam file
 - [female_head1_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head1_STAR_genomeAligned.sortedByCoord.out.bam)
 - [female_head2_bam](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/F_head2_STAR_genomeAligned.sortedByCoord.out.bam)
