@@ -1,85 +1,49 @@
-# Tutorial4 Analysis of differentially expressed (DE) genes
+# Tutorial4 Analysis of differentially expressed genes
 
-## DE analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
-
-### R basics 
-R is a language and environment for statistical computing and graphics. 
-It is wildly used among bioinformaticians not only because it's pretty easy to work with table data, 
-but also because bioconductor(a pool of packages target for high-throughput biological assays) was released on R platform. 
-
-It's always good for you to learn some R basics. Use more google if any task sounds hard to you! 
-
+## Preparations
+### R basics
+If you would like to brush up R basics, find the following resources:
 **resources**: 
 [- R basics](https://www.quora.com/What-are-some-good-resources-for-learning-R-1)
 [- R bioconductor](https://www.coursera.org/learn/bioconductor)
+[- R basics from previous discussion session](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#2-r-basics)
 
+R is a language and environment for statistical computing and graphics. It is wildly used among bioinformaticians not only because it's pretty easy to work with table data, but also because bioconductor (a pool of packages target for high-throughput biological assays) was released on R platform.
 
-### DE analysis with DESeq2
+RStudio is recommended for this tutorial even though it is completely doable to run all commands in R. To install RStudio, please refer to [the previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#1-prepare-the-r-working-environment). 
+
+### Install required R packages
 ```R
-# Install required packages
-requrie(dplyr)
-require(DESeq2)
-require(ggplot2)
-require(pheatmap)
-require(ggfortify)
+# install package "dplyr"
+install.packages("dplyr")
 
-# read in the summarize raw count table
+# install package "DESeq2"
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 
-table <- read.table("all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
+BiocManager::install("DESeq2")
 
-# have a glance of what the four sample looks like, using a PCA plot
-ggplot2::autoplot(prcomp(t(table)),label=TRUE)
+# install package "ggplot2" for plotting results
+install.packages("ggplot2")
 
+# install package "pheatmap" to plot heatmaps
+install.packages("pheatmap")
 
-# To know what's going on please see the function defination below.
-degenes <- Desq2(table[,c(1,2)],table[,c(3,4)],c("head","midgut")) %>% as.data.frame() 
-
-
-# See the differential expressed genes in four samples using heatmap
-
-deheat <- table[rownames(head(degenes,20)),] %>% as.matrix
-pheatmap::pheatmap(log(deheat+1))
-
-Desq2 <- function (count1, count2, group_pattern, thred = 20) 
-{
-    table <- data.frame(cbind(count1, count2))
-    pat1 <- group_pattern[1]
-    pat2 <- group_pattern[2]
-    groups <- rep(pat1, length(colnames(table)))
-    groups[grep(pat2, colnames(table))] <- pat2
-    counts <- table[rowSums(table) > 0, ]
-    nGenes <- length(counts[, 1])
-    coverage <- colSums(counts)/nGenes
-    counts <- counts[, coverage > 10]
-    groups <- groups[coverage > 10]
-    groups <- factor(groups, levels = c(pat1, pat2))
-    coverage <- coverage[coverage > 1]
-    library(DESeq2)
-    library("BiocParallel")
-    dds <- DESeqDataSetFromMatrix(counts, DataFrame(groups), 
-        ~groups)
-    register(MulticoreParam(thred))
-    dds <- DESeq(dds, parallel = TRUE)
-    res <- results(dds)
-    find.significant.genes <- function(de.result, alpha = 0.05) {
-        filtered <- de.result[(de.result$padj < alpha) & !is.infinite(de.result$log2FoldChange) & 
-            !is.nan(de.result$log2FoldChange) & !is.na(de.result$padj), 
-            ]
-        sorted <- filtered[order(filtered$padj), c(1, 2, 6)]
-    }
-    de2.genes <- find.significant.genes(res)
-    return(de2.genes)
-}
-
+# install package "ggfortify" to conduct PCA analysis
+install.packages("ggfortify")
 ```
 
-After we load the data, we first want to see whether these four samples have very different different profile. 
-Since there are tens of thousands genes we can't check them manually. We usually use some visualization method to do that:
+### Download raw counts file used for this tutorial
+Download the raw counts for the four samples you mapped in the previous tutorial [here](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt).
+
+## Experiment/sample quality check
+After obtaining the mapped reads and reads counts for every gene, we can first check whether these four samples have very different gene expression profiles. To compare tens of thousands genes automatically, we can use the following visualization methods:
 1) Heatmap:
 In R you could simply plot a heatmap use `pheatmap` package:
 ```R
-require(pheatmap)
-table <- read.table("all_sample_count.txt",header = T,stringsAsFactors = F,row.names = 1)
+library(pheatmap)
+setwd("/path/to/your/data/")
+table <- read.table("combine_sample_raw_counts.txt", header = T,stringsAsFactors = F,row.names = 1)
 pheatmap::pheatmap(log(table+1),show_rownames = F)
 ```
 
@@ -90,9 +54,44 @@ ggplot2::autoplot(ggfortify::prcomp(t(table)),label=TRUE)
 Principal component analysis (PCA) is the most simple but direct way to visualize a high dimentional data in a low dimensional space.
 If you're not familiar with PCA, please make sure understand it use any resource you could find! 
 
-3) Visualize top DE genes (sorted by adjusted pvalue)
+## Differential analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+
+### Read in raw counts output from featureCounts
+```R
+setwd("/path/to/your/data/")
+table <- read.table("combine_sample_raw_counts.txt", header = T,stringsAsFactors = F,row.names = 1)
+counts <- table[, c(2:5)] # load the raw counts and leave out gene lengths
+head(counts) # look at what the table looks like
+```
+
+### Run DESeq2
+```R
+# Load DESeq2 package
+library(DESeq2)
+
+# Create a data frame that includes the information of replicates for the samples
+labels <- c("head","head","midgut","midgut") # showing the first two samples are replicates and the last two samples are replicates
+labels.df <- DataFrame(condition = labels, row.names = colnames(counts))
+
+# Load the raw counts, replicate information into DESeq2
+dds <- DESeqDataSetFromMatrix(countData = counts,
+                              colData = labels.df,
+                              design = ~ condition)
+
+# Run DESeq2
+dds <- DESeq(dds)
+
+# Show results that include fold changes and p-values
+res <- results(dds)
+res.df <- as.data.frame(res)
+head(res.df)
+```
+
+### Visualize differentially expressed genes
+Visualize top DE genes (sorted by adjusted pvalue)
 ```R
 
 deheat <- table[rownames(head(degenes,20)),] %>% as.matrix
 pheatmap::pheatmap(log(deheat+1))
 ```
+
