@@ -64,7 +64,7 @@ Pre-computed index files: [download here](https://drive.google.com/open?id=1CT-i
 
 - [all sample](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt)
 
-## Recourses:
+## Resources:
 #### 1.Tutorials:
 [1] Weill Cornell Medical Colledge: http://chagall.med.cornell.edu/RNASEQcourse/
 
