@@ -98,6 +98,7 @@ DESeq2 provides a convenient visualization function to quickly check where diffe
 plotMA(res)
 ```
 You should be able to see the plot below:
+
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_DESeq2Plot.png">
 
 You can also visualize the actual expression of differential genes in the samples. To do this, we first sort out differentially expressed genes from the outputs of DESeq2. 
@@ -118,11 +119,17 @@ write.table(as.data.frame(DE.list),file="~/DE.txt",quote=F,sep=",",row.names=F) 
 Now let's go the [Metascape](http://metascape.org/gp/index.html#/main/step1) website and conduct functional enrichment analysis for these genes. 
 
 Step 1: upload the text file you just created to save differential genes
+
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step1.png">
+
 Step 2: select Drosophila (D. melanogaster) as input sepcies and analysis species
+
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step2.png">
+
 Step 3: hit "Express Analysis" and wait for the results (usually take less than 2 minutes)
+
 Step 4: see the analysis reports and read the top pathways that the differential genes are enriched for under "Bar Graph Summary" section
+
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_reports.png">
 
 **For the homework, you will need to the repeat the steps above for genes with higher expression in head and for genes with higher expression in midgut. 
