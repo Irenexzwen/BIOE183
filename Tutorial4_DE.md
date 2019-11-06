@@ -6,53 +6,58 @@ If you would like to brush up R basics, find the following resources:
 **resources**: 
 [- R basics](https://www.quora.com/What-are-some-good-resources-for-learning-R-1)
 [- R bioconductor](https://www.coursera.org/learn/bioconductor)
-[- R basics from previous discussion session](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#2-r-basics)
+[- previous discussion session](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#2-r-basics)
 
 R is a language and environment for statistical computing and graphics. It is wildly used among bioinformaticians not only because it's pretty easy to work with table data, but also because bioconductor (a pool of packages target for high-throughput biological assays) was released on R platform.
 
 RStudio is recommended for this tutorial even though it is completely doable to run all commands in R. To install RStudio, please refer to [the previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#1-prepare-the-r-working-environment). 
 
-### Install required R packages
+### Install DESeq2
 ```R
-# install package "dplyr"
-install.packages("dplyr")
-
 # install package "DESeq2"
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install("DESeq2")
-
-# install package "ggplot2" for plotting results
-install.packages("ggplot2")
-
-# install package "pheatmap" to plot heatmaps
-install.packages("pheatmap")
-
-# install package "ggfortify" to conduct PCA analysis
-install.packages("ggfortify")
 ```
 
 ### Download raw counts file used for this tutorial
-Download the raw counts for the four samples you mapped in the previous tutorial [here](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt).
+Download the raw counts for the four samples you mapped in the previous tutorial [here](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt). You can use "wget" in Linux to download the data:
+```bash
+wget http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt
+```
 
-## Experiment/sample quality check
-After obtaining the mapped reads and reads counts for every gene, we can first check whether these four samples have very different gene expression profiles. To compare tens of thousands genes automatically, we can use the following visualization methods:
-1) Heatmap:
-In R you could simply plot a heatmap use `pheatmap` package:
+## Replicates & experiments quality check
+After obtaining the mapped reads and reads counts for every gene, we can first check which of these four samples have very similar/different gene expression profiles. To compare gene expression across samples, the first step is always normalization. The following codes compute TPM values from raw counts:
 ```R
-library(pheatmap)
 setwd("/path/to/your/data/")
-table <- read.table("combine_sample_raw_counts.txt", header = T,stringsAsFactors = F,row.names = 1)
-pheatmap::pheatmap(log(table+1),show_rownames = F)
-```
+table <- read.table("combine_sample_raw_counts.txt", header = T,stringsAsFactors = F,row.names = 1) # read in raw count matrix
+counts <- table[, c(2:5)] # store raw counts
+gene.length <- table[, 1] # store gene lengths
+library.size <- colSums(counts) # compute total counts of reads for each sample
+counts.normalized.by.length <- counts[,c(1:4)]/gene.length # compute raw counts normalized for gene length
 
-2) PCA plot
-```R
-ggplot2::autoplot(ggfortify::prcomp(t(table)),label=TRUE)
+# compute TPM values, refer to the formula to better understand why it is done this way
+tpm <- 1e6*t(t(counts.normalized.by.length[c(1:nrow(counts.normalized.by.length)),])/colSums(counts.normalized.by.length))
+head(tpm) # take a look at the TPM values
+colSums(tpm) # make sure that TPM values add up to the same number for each sample
+# convert TPM values to log2 scale
+log2.tpm <- log2(tpm+1)
 ```
-Principal component analysis (PCA) is the most simple but direct way to visualize a high dimentional data in a low dimensional space.
-If you're not familiar with PCA, please make sure understand it use any resource you could find! 
+After obtaining TPM values, you are now able to compare the gene expression across samples. To check the correlation between replicates, you can use function "plot" in R to visualize the expression of all the genes as a scatter plot. Here is a toy example showing how you can use "plot".
+```R
+X <- c(1,2,3,4,5)
+Y <- c(2,4,6,8,10)
+plot(X, Y, xlab="X sample replicate 1", ylab="X sample replicate 2")
+```
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_toy.png">
+
+To compare multiple replicates from different experiments, let's see how these samples cluster with each other. Refer to [previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#3-cluster-analysis-in-r) for more information about how to do clustering in R. 
+```R
+d <- dist(t(log2.tpm), method = "euclidean") # compute distance
+hc1 <- hclust(d, method = "complete") # conduct hierarchical clustering using complete linkage
+plot(hc1) # plot dendrogram
+```
 
 ## Differential analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 
@@ -88,10 +93,36 @@ head(res.df)
 ```
 
 ### Visualize differentially expressed genes
-Visualize top DE genes (sorted by adjusted pvalue)
+DESeq2 provides a convenient visualization function to quickly check where differentially expressed genes are distributed with respect to their expression levels and fold changes. 
 ```R
+plotMA(res)
+```
+You should be able to see the plot below:
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_DESeq2Plot.png">
 
-deheat <- table[rownames(head(degenes,20)),] %>% as.matrix
-pheatmap::pheatmap(log(deheat+1))
+You can also visualize the actual expression of differential genes in the samples. To do this, we first sort out differentially expressed genes from the outputs of DESeq2. 
+```R
+DE.bools <- abs(res.df[,2]) > 1 & res.df[,6] < 0.05 # filter for fold change greater than 2 and adjusted p-value less than 0.05
+```
+Then we can use R function "heatmap()" to plot a heatmap of the log2 TPM values across samples.
+```R
+heatmap(log2.tpm[DE.bools,])
 ```
 
+### Find functional enrichment of differentially expressed genes
+We can use [Metascape](http://metascape.org/gp/index.html#/main/step1) to easily find the biological pathways that differential genes are enriched for. Input to Metascape is simply a list of genes (either gene names or gene ids). Let's first output the differentially expressed genes into a text file.
+```R
+DE.list <- row.names(res.df)[DE.bools] # extract gene IDs for differential genes
+write.table(as.data.frame(DE.list),file="~/DE.txt",quote=F,sep=",",row.names=F) # save genes in a text file in your home directory
+```
+Now let's go the [Metascape](http://metascape.org/gp/index.html#/main/step1) website and conduct functional enrichment analysis for these genes. 
+
+Step 1: upload the text file you just created to save differential genes
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step1.png">
+Step 2: select Drosophila (D. melanogaster) as input sepcies and analysis species
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step2.png">
+Step 3: hit "Express Analysis" and wait for the results (usually take less than 2 minutes)
+Step 4: see the analysis reports and read the top pathways that the differential genes are enriched for under "Bar Graph Summary" section
+<img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_reports.png">
+
+**For the homework, you will need to the repeat the steps above for genes with higher expression in head and for genes with higher expression in midgut. 
