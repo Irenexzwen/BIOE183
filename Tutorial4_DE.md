@@ -21,10 +21,10 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("DESeq2")
 ```
 
-### Download raw counts file used for this tutorial
-Download the raw counts for the four samples you mapped in the previous tutorial [here](http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt). You can use "wget" in Linux to download the data:
+### Download [raw counts file](http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt) used for this tutorial and Homework 4
+This file contains gene lengths and raw counts for the data you already mapped in the previous tutorial. You can use "wget" in Linux to download the file as well:
 ```bash
-wget http://sysbio.ucsd.edu/public/wenxingzhao/CourseFall2019/DS_quant/all_sample_count.txt
+wget http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt
 ```
 
 ## Replicates & experiments quality check
