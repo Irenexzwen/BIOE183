@@ -92,7 +92,7 @@ head(res.df)
 ```
 
 ### Visualize differentially expressed genes
-DESeq2 provides a convenient visualization function "plotMA" to quickly check where differentially expressed genes are distributed with respect to their expression levels and fold changes. 
+DESeq2 provides a convenient visualization function "plotMA" to quickly check where differentially expressed genes (red dots) are distributed with respect to their expression levels and fold changes. 
 ```R
 plotMA(res)
 ```
