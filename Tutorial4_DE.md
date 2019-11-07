@@ -26,7 +26,7 @@ wget http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt
 ```
 
 ## Replicates & experiments quality check
-After obtaining the mapped reads and reads counts for every gene, we can first check which of these four samples have very similar/different gene expression profiles. To compare gene expression across samples, the first step is always normalization. The following codes compute TPM values from raw counts:
+After obtaining reads counts for every gene, we can first check which of these four samples have similar/different gene expression profiles. To compare gene expression across samples, the first step is always normalization. The following codes compute TPM values from raw counts:
 ```R
 # First, add the folder where you store the downloaded raw counts to the paths that R searches for
 setwd("/path/to/your/data/")
@@ -43,7 +43,7 @@ colSums(tpm) # make sure that TPM values add up to the same number for each samp
 # convert TPM values to log2 scale
 log2.tpm <- log2(tpm+1)
 ```
-After obtaining TPM values, you are now able to compare the gene expression across samples. To check the correlation between replicates, you can use function "plot" in R to visualize the expression of all the genes as a scatter plot. Here is a toy example showing how you can use "plot".
+After obtaining TPM values, you are now able to compare the gene expression across samples. To check the correlation between replicates, you can use function "plot" in R to visualize the expression of all the genes as a scatter plot. Here is a toy example showing how you can use function "plot" to do that. Replace "X" and "Y" by the columns in table "log2.tpm" to plot for log2 TPM values of replicates.
 ```R
 X <- c(1,2,3,4,5)
 Y <- c(2,4,6,8,10)
@@ -51,7 +51,7 @@ plot(X, Y, xlab="X sample replicate 1", ylab="X sample replicate 2")
 ```
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_toy.png">
 
-To compare multiple replicates from different experiments, let's see how these samples cluster with each other. Refer to [previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#3-cluster-analysis-in-r) for more information about how to do clustering in R. 
+To compare multiple replicates from different experiments, let's see how these samples cluster with each other. Refer to [previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#3-cluster-analysis-in-r) for more information about how to do clustering in R. The following commands conduct hierarchical clustering on the log2 TPM values of the four samples. 
 ```R
 d <- dist(t(log2.tpm), method = "euclidean") # compute distance
 hc1 <- hclust(d, method = "complete") # conduct hierarchical clustering using complete linkage
@@ -74,7 +74,7 @@ head(counts) # look at what the table looks like
 library(DESeq2)
 
 # Create a data frame that includes the information of replicates for the samples
-labels <- c("head","head","midgut","midgut") # showing the first two samples are replicates and the last two samples are replicates
+labels <- factor(c("head","head","midgut","midgut")) # specify that the first two samples are replicates of "head" and the last two samples are replicates of "midgut"
 labels.df <- DataFrame(condition = labels, row.names = colnames(counts))
 
 # Load the raw counts, replicate information into DESeq2
@@ -92,16 +92,16 @@ head(res.df)
 ```
 
 ### Visualize differentially expressed genes
-DESeq2 provides a convenient visualization function to quickly check where differentially expressed genes are distributed with respect to their expression levels and fold changes. 
+DESeq2 provides a convenient visualization function "plotMA" to quickly check where differentially expressed genes are distributed with respect to their expression levels and fold changes. 
 ```R
 plotMA(res)
 ```
-You should be able to see the plot below:
-
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_DESeq2Plot.png">
 
 You can also visualize the actual expression of differential genes in the samples. To do this, we first sort out differentially expressed genes from the outputs of DESeq2. 
 ```R
+res.df[is.na(res.df[,2]),2] <- 0 # replace null in log2 fold change by 0
+res.df[is.na(res.df[,6]),6] <- 1 # replace null in adjusted p-values by 1
 DE.bools <- abs(res.df[,2]) > 1 & res.df[,6] < 0.05 # filter for fold change greater than 2 and adjusted p-value less than 0.05
 ```
 Then we can use R function "heatmap()" to plot a heatmap of the log2 TPM values across samples.
@@ -110,25 +110,25 @@ heatmap(log2.tpm[DE.bools,])
 ```
 
 ### Find functional enrichment of differentially expressed genes
-We can use [Metascape](http://metascape.org/gp/index.html#/main/step1) to easily find the biological pathways that differential genes are enriched for. Input to Metascape is simply a list of genes (either gene names or gene ids). Let's first output the differentially expressed genes into a text file.
+We can use [Metascape](http://metascape.org/gp/index.html#/main/step1) to find the biological pathways that differential genes are enriched for. Input to Metascape is simply a list of genes (either gene names or gene ids). Let's first output the differentially expressed genes into a text file.
 ```R
 DE.list <- row.names(res.df)[DE.bools] # extract gene IDs for differential genes
 write.table(as.data.frame(DE.list),file="~/DE.txt",quote=F,sep=",",row.names=F) # save genes in a text file in your home directory
 ```
 Now let's go the [Metascape](http://metascape.org/gp/index.html#/main/step1) website and conduct functional enrichment analysis for these genes. 
 
-Step 1: upload the text file you just created to save differential genes
+**Step 1: upload the text file that include the differential genes**
 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step1.png">
 
-Step 2: select Drosophila (D. melanogaster) as input sepcies and analysis species
+**Step 2: select Drosophila (D. melanogaster) as input sepcies and analysis species**
 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_step2.png">
 
-Step 3: hit "Express Analysis" and wait for the results (usually take less than 2 minutes)
+**Step 3: hit "Express Analysis" and wait for the results (usually take less than 2 minutes)**
 
-Step 4: see the analysis reports and read the top pathways that the differential genes are enriched for under "Bar Graph Summary" section
+**Step 4: see the analysis reports and read the top pathways that the differential genes are enriched for under "Bar Graph Summary" section**
 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_reports.png">
 
-**For the homework, you will need to the repeat the steps above for genes with higher expression in head and for genes with higher expression in midgut. 
+ATTENTION: *For the homework, you will need to the repeat the steps above for genes with higher expression in head and for genes with higher expression in midgut.*
