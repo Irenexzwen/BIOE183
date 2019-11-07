@@ -98,7 +98,7 @@ plotMA(res)
 ```
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Rplot_DESeq2Plot.png">
 
-You can also visualize the actual expression of differential genes in the samples. To do this, we first sort out differentially expressed genes from the outputs of DESeq2. 
+You can also visualize the actual expression of differential genes in the samples. To do this, we first sort out differentially expressed genes from the outputs of DESeq2. To identify differential genes, the best practice is to set cutoffs for both fold change and significance value. Here, we use column “log2FoldChange” that includes log2 transformed fold changes, and column “padj” that contains adjusted p-values corrected for multiple testing. To learn more about the approach DESeq2 used for multiple testing correction, please refer to the [Benjamini–Hochberg procedure](https://en.wikipedia.org/wiki/False_discovery_rate#Benjamini%E2%80%93Hochberg_procedure). 
 ```R
 res.df[is.na(res.df[,2]),2] <- 0 # replace null in log2 fold change by 0
 res.df[is.na(res.df[,6]),6] <- 1 # replace null in adjusted p-values by 1
