@@ -3,18 +3,16 @@
 ## Preparations
 ### R basics
 If you would like to brush up R basics, find the following resources:
-**resources**: 
-[- R basics](https://www.quora.com/What-are-some-good-resources-for-learning-R-1)
+[R basics](https://www.quora.com/What-are-some-good-resources-for-learning-R-1)
 [- R bioconductor](https://www.coursera.org/learn/bioconductor)
-[- previous discussion session](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#2-r-basics)
+[- previous discussion session](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#2-r-basics).
 
 R is a language and environment for statistical computing and graphics. It is wildly used among bioinformaticians not only because it's pretty easy to work with table data, but also because bioconductor (a pool of packages target for high-throughput biological assays) was released on R platform.
 
 RStudio is recommended for this tutorial even though it is completely doable to run all commands in R. To install RStudio, please refer to [the previous discussion notes](https://github.com/Irenexzwen/BIOE183/blob/master/Discussion/DiscussionTutorial_ClusterAnalysis.md#1-prepare-the-r-working-environment). 
 
-### Install DESeq2
+### Install DESeq2 by pasting the following commands in R
 ```R
-# install package "DESeq2"
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
@@ -22,7 +20,7 @@ BiocManager::install("DESeq2")
 ```
 
 ### Download [raw counts file](http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt) used for this tutorial and Homework 4
-This file contains gene lengths and raw counts for the data you already mapped in the previous tutorial. You can use "wget" in Linux to download the file as well:
+This file has been processed in a way so that it only contains gene lengths and raw counts from the featureCounts output. The raw counts for all the four samples that you mapped in the previous tutorial have been combined into this file. Other columns in featureCounts output were left out since they will not be used in the following analysis. You can use "wget" in Linux to download the file:
 ```bash
 wget http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt
 ```
@@ -30,6 +28,7 @@ wget http://homer.ucsd.edu/zeyang/BENG183/combine_sample_raw_counts.txt
 ## Replicates & experiments quality check
 After obtaining the mapped reads and reads counts for every gene, we can first check which of these four samples have very similar/different gene expression profiles. To compare gene expression across samples, the first step is always normalization. The following codes compute TPM values from raw counts:
 ```R
+# First, add the folder where you store the downloaded raw counts to the paths that R searches for
 setwd("/path/to/your/data/")
 table <- read.table("combine_sample_raw_counts.txt", header = T,stringsAsFactors = F,row.names = 1) # read in raw count matrix
 counts <- table[, c(2:5)] # store raw counts
