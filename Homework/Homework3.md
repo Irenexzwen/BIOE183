@@ -9,7 +9,7 @@ Total: 10 points
 ## 1. RNA-seq Analysis
 ### a.	Why is normalization important in RNAseq analysis?
 
-### b.	One method to normalize RNAseq results is RPKM (Reads Per Kilobase per Million mapped reads). Say we are looking at a gene sequence that is 400bp long. After performing alignment on a library of 108 total single-end reads, we find that 500 reads have mapped to the gene of interest. Calculate the RPKM for this case.
+### b.	One method to normalize RNAseq results is RPKM (Reads Per Kilobase per Million mapped reads). Say we are looking at a gene sequence that is 400bp long. After performing alignment on a library of 10^8 total single-end reads, we find that 500 reads have mapped to the gene of interest. Calculate the RPKM for this case.
 
 ### c.	A more popular normalization method nowadays is TPM (Transcripts Per Million). How is TPM calculated? Why is TPM preferred over RPKM?
 
