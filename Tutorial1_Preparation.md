@@ -171,6 +171,8 @@ conda list             # list out all the packages installed in this conda envir
 conda update conda     # update conda
 conda update A         # update package A
 conda search A         # check whether package A is in the source channel.
+
+conda env remove -n ENV_NAME    # remove a virtual environment.
 ```
 
 Install packages: 
