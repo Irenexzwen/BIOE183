@@ -79,8 +79,9 @@ Show the distribution of GC content for all reads. What to look for: whether the
 #### 5) Sequence duplication levels
 This plot means percentage of reads of asgiven sequence in the file which are present a given number of times in the file. There are two sources of duplication:
 - Biased PCR enrichment (some sequence might be favored by PCR)
-- trur overrepresented sequence in your library
-When sequencing RNA there will be some very highly abundant transcripts and some lowly abundant. It is expected that duplicate reads will be observed for high abundance transcripts. The RNA-Seq data below was flagged as Failed by FastQC even though the duplication is expected in this case.
+- The overrepresented sequence in your library <br>
+
+Your RNA sequencing library will contain highly abundant transcripts. It is expected that duplicated reads will be observed for high abundance transcripts. The RNA-Seq data below was flagged as Failed by FastQC even though the duplication is expected in this case.
 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/dup.png">
 
