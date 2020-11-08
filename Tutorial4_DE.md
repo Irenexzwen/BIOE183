@@ -131,4 +131,3 @@ Now let's go the [Metascape](http://metascape.org/gp/index.html#/main/step1) web
 
 <img src="https://github.com/Irenexzwen/BIOE183/blob/master/images/Metascape_reports.png">
 
-ATTENTION: *For the homework, you will need to the repeat the steps above for genes with higher expression in head and for genes with higher expression in midgut.*
